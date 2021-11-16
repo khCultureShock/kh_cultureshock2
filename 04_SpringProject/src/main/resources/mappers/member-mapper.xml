@@ -10,8 +10,8 @@
 	
 	<!-- CRUD SQL 선언부 -->
 	<insert id="insertMember" parameterType="Member">
-		INSERT INTO MEMBER VALUES( #{ userId }, #{ password }, #{ userName }, #{ gender }, #{ age }, #{ email }, 
-		#{ phone }, #{ address }, #{ hobby, typeHandler=MyTypeHandler }, SYSDATE  )
+		INSERT INTO MEMBER VALUES( SEQ_USERNO.NEXTVAL, #{ userId }, #{ password }, #{ userName }, #{ gender }, #{ age }, #{ phone }, 
+		#{ email }, 2, SYSDATE  )
 	</insert>
 		
 	<select id="selectOne" parameterType="string" resultMap="resultMember">
@@ -22,7 +22,7 @@
 	
 		UPDATE MEMBER 
 		SET EMAIL = #{ email }, USERNAME = #{ userName }, AGE = #{ age },
-		    PHONE = #{ phone }, ADDRESS = #{ address }, HOBBY = #{ hobby, typeHandler=MyTypeHandler }
+		    PHONE = #{ phone }
 		WHERE USERID = #{ userId }
 	
 	</update>
