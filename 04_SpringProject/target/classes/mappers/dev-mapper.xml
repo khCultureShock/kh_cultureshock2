@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="devSQL">
+
+	<resultMap type="Dev" id="devMap">
+		<!-- column : DB 컬럼, property : 자바 필드 변수명 -->
+		<!-- 기본키 -->
+		<!--  <id column="DEVNO" property="devNo" />  -->
+		<!-- 일반 컬럼 -->
+		<!-- 
+		<result column="devname" property="devName" />
+		<result column="devAGE" property="devAge" />
+		 -->
+		 <!-- 자바 필드변수와 DB 컬럼 명이 동일하다면 생략 가능 -->
+		<result column="devLang" property="devLang" typeHandler="MyTypeHandler"/>
+	</resultMap>
+
+	<insert id="insertDev" parameterType="Dev">
+		INSERT INTO DEV VALUES( SEQ_DEV_NO.NEXTVAL, 
+		   #{ devName }, #{ devAge }, #{ devEmail },
+		   #{ devGender }, #{ devLang, typeHandler=MyTypeHandler })
+	</insert>	
+
+	<!-- Access to #{ field } -->
+	
+	<select id="selectDevList" resultMap="devMap">
+		SELECT * FROM DEV ORDER BY DEVNO DESC
+	</select>
+	
+	<select id="selectDev" parameterType="int" resultMap="devMap">
+		SELECT * FROM DEV WHERE DEVNO = #{ no }
+	</select>
+	
+	<update id="updateDev" parameterType="Dev">
+		UPDATE DEV SET DEVNAME = #{ devName },
+		               DEVAGE = #{ devAge },
+		               DEVEMAIL = #{ devEmail },
+		               DEVGENDER = #{ devGender },
+		               DEVLANG = #{ devLang, typeHandler=MyTypeHandler }
+		WHERE DEVNO = #{ devNo }
+	</update>
+	
+	<delete id="deleteDev" parameterType="int">
+		DELETE FROM DEV WHERE DEVNO = #{ no }
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
