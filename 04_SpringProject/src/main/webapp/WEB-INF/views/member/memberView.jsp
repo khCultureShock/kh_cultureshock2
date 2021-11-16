@@ -25,13 +25,12 @@
 			<input type="number" class="form-control" placeholder="나이" name="age" id="age" value="${member.age}">
 			<input type="email" class="form-control" placeholder="이메일" name="email" id="email" value="${member.email}" required>
 			<input type="tel" class="form-control" placeholder="전화번호 (예:01012345678)" name="phone" id="phone" maxlength="11" value="${member.phone}" required>
-			<input type="text" class="form-control" placeholder="주소" name="address" value="${member.address}" id="address">
 			<select class="form-control" name="gender" required>
 			  <option value="" disabled selected>성별</option>
 			  <option value="M" ${member.gender=='M'?'selected':'' }>남</option>
 			  <option value="F" ${member.gender=='F'?'selected':'' }>여</option>
 			</select>
-			<div class="form-check-inline form-check">
+			<%-- <div class="form-check-inline form-check">
 				취미 : &nbsp; 
 				<% 
 					/* List.contains메소드를 사용하기 위해 String[] => List로 형변환함.  */
@@ -50,7 +49,7 @@
 				<label for="hobby3" class="form-check-label" >게임</label>&nbsp;
 				<input type="checkbox" class="form-check-input" name="hobby" id="hobby4" value="여행" <%=hobbyList!=null && hobbyList.contains("여행")?"checked":""%>>
 				<label for="hobby4" class="form-check-label" >여행</label>&nbsp;
-			</div>
+			</div> --%>
 			<br />
 			<input type="submit" class="btn btn-outline-success" value="수정" >&nbsp;
 			<input type="reset" class="btn btn-outline-success" value="취소">&nbsp;
