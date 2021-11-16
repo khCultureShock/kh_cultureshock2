@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Culture Shock</title>
+	<title>Culture Shock4</title>
 	<c:import url="views/common/header.jsp"/>
 </head>
 <body>
