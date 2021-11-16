@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	연습연습연습입니다!
+	연습연습연습입니다! 깃연습!
 </body>
 </html>
