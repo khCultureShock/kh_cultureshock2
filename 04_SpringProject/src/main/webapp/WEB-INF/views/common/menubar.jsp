@@ -50,7 +50,7 @@
 				</div>
 			  </li>
 			   <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/board/boardList.do" class="nav-link">지도map</a>
+              <a href="${ pageContext.request.contextPath }/board/boardList.do" class="nav-link">지도</a>
            </li>
 		    </ul>
 		   
