@@ -19,4 +19,18 @@
 		background-color: black;
 		color : white;
 	}
+	
+	@keyframes blink {
+		0%,
+		50%,
+		100% {
+			opacity: 1;
+		}
+		25%,
+		75% {
+			opacity: 0;
+		}	
+	}
+	
+	a:hover { text-decoration: none;}
 </style>
