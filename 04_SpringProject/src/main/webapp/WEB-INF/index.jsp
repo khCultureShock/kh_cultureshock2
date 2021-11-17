@@ -15,17 +15,6 @@
 		<c:import url="views/common/menubar.jsp"/>
 		<section id="content">
 		
-			<div style="height:20px; width:1000px; margin-left:25%;" >
-				<button style="margin-left: 11%;" type="button" onclick=function();>게시판</button> <!-- 링크 함수 필요 -->
-				&nbsp;         
-				<button style="margin-left: 15%;" type="button" onclick=function();>지도</button> <!-- 링크 함수 필요 -->
-				&nbsp;
-				<button style="margin-left: 15%;" type="button" onclick=function();>지역별</button> <!-- 링크 함수 필요 -->
-				&nbsp;
-				<button style="margin-left: 15%;" type="button" onclick=function();>종류별</button> <!-- 링크 함수 필요 -->
-				&nbsp;
-			</div>
-			
 			<div style="height:220px; width:1100px; margin-left:22%; margin-top:20px;">
 				    <div style="width:53px; height:53px; padding-top:50px; display:inline-block;">
 				    	<button style="margin-top:50px; border: 1px; background-color:white;" 
