@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="art">
+
+	<select id="selectList" parameterType="int" resultType="Art">
+		SELECT *
+		FROM (SELECT ROWNUM A, ARTNO, ARTIMG, ARTTITLE
+		      FROM (SELECT * FROM ART ORDER BY ARTNO DESC)
+		      WHERE ROWNUM &lt; 8)
+		WHERE A  &gt; 3
+	</select>
+		<!-- SELECT * FROM ART ORDER BY ARTNO DESC -->
+		<!-- &lt; : < , &gt; : > -->
+		<!-- &le; : ≤ , &ge; : ≥ but error -->
+</mapper>
