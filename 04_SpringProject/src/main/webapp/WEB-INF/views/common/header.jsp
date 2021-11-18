@@ -11,13 +11,14 @@
 <!-- 사용자작성 css -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" />
 <link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/rion.PNG">
+
 <style>
 	body {
 		background-color: begie;
 	}
 	footer{
-		background-color: black;
-		color : white;
+		background-color: white;
+		color : skyblue;
 	}
 	
 	@keyframes blink {
@@ -30,6 +31,12 @@
 		75% {
 			opacity: 0;
 		}	
+	}
+	
+	.blink {
+		animation: blink 3s both;
+		animation-iteration-count: infinite;
+		color: #007bff;
 	}
 	
 	a:hover { text-decoration: none;}
