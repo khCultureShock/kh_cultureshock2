@@ -45,7 +45,7 @@
 				게시판
 				</a>
 			    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/board/boardList.do">공지사항</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList.do">공지사항</a>
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/board/boardList.do">자유게시판</a>
 				</div>
 			  </li>

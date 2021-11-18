@@ -40,7 +40,9 @@
 			<mapping path="/member/memberView.do"/>
 			<mapping path="/member/memberUpdate.do"/>
 			<mapping path="/board/**/*.do" />
+			<mapping path="/notice/**/*.do" />
 			<exclude-mapping path="/board/boardList.do" />			
+			<exclude-mapping path="/notice/noticeList.do" />	
 			<beans:bean id="loginCheck" class="com.kh.spring.common.LoginInterceptor"/>
 		</interceptor>
 	</interceptors>
