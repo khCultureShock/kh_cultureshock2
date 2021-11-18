@@ -15,6 +15,7 @@
  		<typeAlias alias="Dev" type="com.kh.spring.demo.model.vo.Dev"/>
  		<typeAlias alias="MyTypeHandler" type="com.kh.spring.common.MyTypeHandler" />
 		<typeAlias alias="Board" type="com.kh.spring.board.model.vo.Board"/>
+		<typeAlias alias="Notice" type="com.kh.spring.notice.model.vo.Notice"/>
 		<typeAlias alias="Attachment" type="com.kh.spring.board.model.vo.Attachment"/>
 		<typeAlias alias="Calendar" type="com.kh.spring.calendar.model.vo.Calendar" />
  	</typeAliases>
