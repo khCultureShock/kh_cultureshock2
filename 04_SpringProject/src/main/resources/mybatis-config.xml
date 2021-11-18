@@ -17,7 +17,7 @@
 		<typeAlias alias="Board" type="com.kh.spring.board.model.vo.Board"/>
 		<typeAlias alias="Attachment" type="com.kh.spring.board.model.vo.Attachment"/>
 		<typeAlias alias="Calendar" type="com.kh.spring.calendar.model.vo.Calendar" />
-		<typeAlias alias="Art" type="com.kh.cs.art.model.vo.Art"></typeAlias>
+		<typeAlias alias="Art" type="com.kh.spring.art.model.vo.Art"></typeAlias>
  	</typeAliases>
  	
  	<!-- 데이터를 DB로 전달할 때 바꾸기를 희망하는 자료형을

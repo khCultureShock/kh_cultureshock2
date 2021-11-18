@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Culture Shock4</title>
+	<title>Culture Shock</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index.css" />
 </head>
 <body>
