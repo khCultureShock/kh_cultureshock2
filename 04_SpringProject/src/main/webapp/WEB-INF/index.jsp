@@ -13,59 +13,7 @@
 <body>
 	<div id="container">
 		<c:import url="views/common/menubar.jsp"/>
-		<section id="content">
-			
-			<div style="height:220px; width:1100px; margin-left:22%; margin-top:20px;">
-				    <div style="width:53px; height:53px; padding-top:50px; display:inline-block;">
-				    	<button style="margin-top:50px; border: 1px; background-color:white;" 
-				    	        type="button" onclick=function();> 
-				    		<img src="${pageContext.request.contextPath }/resources/images/left.png"" alt="왼쪽 화살표" /> <br /> <!-- ajax 적용 필요 -->
-				    	</button>
-				    </div>
-					&nbsp;
-					<div style="height:220px; width:200px; display:inline-block;">
-						<a href="${pageContext.request.contextPath}/poster/Notredame.do" style="margin-left:5px;">					<!-- 링크 변경 필요 -->
-							<img src="${pageContext.request.contextPath }/resources/images/Notredame.png"" alt="노트르담 포스터" /> 
-						</a>
-						<br />
-						<a href="${pageContext.request.contextPath}/poster/Notredame.do" style="margin-left:45px;">노트르담 드 파리</a> <!-- 링크 변경 적용 필요 -->
-						<p style="font-size:small; margin-left:25px;">서울ㅣ세종문화회관ㅣ0.39km <br /> 2021-11-17 ~ 2021-12-05</p>
-					</div>
-					&nbsp;
-					<div style="height:220px; width:200px; display:inline-block;">
-						<a href="${pageContext.request.contextPath}/poster/BurningField.do" style="margin-left:10px;">				<!-- 링크 변경 필요 -->
-							<img src="${pageContext.request.contextPath }/resources/images/BurningField.png"" alt="버닝필드 포스터" /> 
-						</a>
-						<br />
-						<a href="${pageContext.request.contextPath}/poster/BurningField.do" style="margin-left:70px;">버닝 필드</a> <!-- 링크 변경 필요 -->
-						<p style="font-size:small; width:200px;">서울ㅣ세종문화회관S씨어터ㅣ0.4km <br />&nbsp;&nbsp; 2021-11-18 ~ 2021-11-21</p>
-					</div>
-					&nbsp;
-					<div style="height:220px; width:200px; display:inline-block;">
-						<a href="${pageContext.request.contextPath}/poster/NowAndThen.do" style="margin-left:5px;">				<!-- 링크 변경 필요 -->
-							<img src="${pageContext.request.contextPath }/resources/images/NowAndThen.png"" alt="Now and Then 포스터" /> 
-						</a>
-						<br />
-						<a href="${pageContext.request.contextPath}/poster/NowAndThen.do" style="margin-left:45px;">Now and Then</a> <!-- 링크 변경 필요 -->
-						<p style="font-size:small;width:200px;">서울ㅣ세종문화회관S씨어터ㅣ0.4km <br />&nbsp;&nbsp;  2021-11-13 ~ 2021-11-14</p>
-					</div>
-					&nbsp;
-					<div style="height:220px; width:200px; display:inline-block;">
-						<a href="${pageContext.request.contextPath}/poster/TheTopping.do" style="margin-left:5px;">				<!-- 링크 변경 필요 -->
-							<img src="${pageContext.request.contextPath }/resources/images/TheTopping.png"" alt="The Topping 포스터" /> 
-						</a>
-						<br />
-						<a href="${pageContext.request.contextPath}/poster/TheTopping.do" style="margin-left:55px;">The Topping</a> <!-- 링크 변경 필요 -->
-						<p style="font-size:small; width:200px;">서울ㅣ세종문화회관S씨어터ㅣ0.4km <br />&nbsp;&nbsp;   2021-12-02 ~ 2021-12-04</p>
-					</div>
-					&nbsp;&nbsp;
-					<div style="width:53px; height:53px; margin-left:8px; display:inline-block;">
-						<button style="border: 1px; background-color:white;" 
-						        type="button" onclick=function();> 
-				    		<img src="${pageContext.request.contextPath }/resources/images/right.png"" alt="오른쪽 화살표" /> <br /> <!-- ajax 적용 필요 -->
-				    	</button>
-					</div>
-			</div>
+		<section id="content">	
 			
 			<br /><br /><br /><br />
 			
