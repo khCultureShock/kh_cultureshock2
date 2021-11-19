@@ -25,15 +25,19 @@
       overflow: auto;  
       }
       
+      li { list-style:none;}
+      
     </style>
     <script>
+       
+     
       // Initialize and add the map
       function initMap() {
         // The location of Uluru
         const seoul = { lat: 37.566381, lng: 126.977717 };
         // The map, centered at Uluru
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
+          zoom: 12,
           center: seoul,
         });
         // The marker, positioned at Uluru
@@ -42,29 +46,89 @@
           map: map,
         });
       }
+     
       
       
       
-      // Ajax
+      // Ajax 공연 정보 가져오기
       $(function(){
 	 	$.ajax({
 		 url : "${pageContext.request.contextPath}/map/mapViewData.do",
 		 type : 'get',
 		 success : function(data){
 			 console.log(data);
+			 var pArr = [];
 			 var result = "";
-			 for( var i in data){
-				 	 var show = data[i];
-					 result += '<li class="showList"><img src=' + show.poster + '>'
-							 + '<div class="select title"' + ' value="' + show.title + '">' + show.title + '</div>'
-							 + '<div class="select pnum"' + 'value="' + show.pnum + '">' + show.pnum +'</div>'
-							 + '<div class="select plcName"'+ 'value="' + show.plcName + '">' + show.plcName + '</div>'
-							 + '</li>'; 
-							 
+			 for( var i in data.poster){
+				 var innerHtml = ""
+						
+						innerHtml =	  '<li class="cell">'
+						innerHtml +='<img src='+data.poster[i] +'>'
+						innerHtml +='<div class="main_topinfo">'
+						innerHtml +=  '<h1 class="' + data.title[i] + '">' + data.title[i] + '</h1>'
+						innerHtml +=  '<p class="main_placeName"' + 'value="' + data.plcName[i] + '">'+ data.plcName[i] + '</p>' 
+						innerHtml += '<p class="main_placeId" value="' + data.pCode[i] + '">' + data.pCode[i] + '</p>'
+						innerHtml +=  '<hr>'
+						innerHtml +=  '<input type="hidden" class="main_pnum" value="' + data.pnum[i] + '"/>'
+						innerHtml += '</div>'
+						innerHtml +='</li>'
+						
+						$('#map-marker-content').append(innerHtml);		
+						pArr.push(data.pCode[i]);
 							 
 			 }
-			  $('#map-marker-content').html(result);
 			  
+			  			console.log(pArr);
+			  		/*
+			  		// 위도 경도 가져오기 
+			  		$.ajax({
+			  			url :  "${pageContext.request.contextPath}/map/mapViewXY.do",
+			  			type : 'get',
+			  			data : { pnum : pArr }, // controller > RequestMapping 부분에 "produces"를 하지 않으면 문자가 깨져서 옴	
+			  			success : function(data){
+			  				console.log(data);
+			  				
+			  				// 지도 마커
+			  				function initMap(){
+			  					const myLatLng = {
+			  							lat : 37.55902624,
+			  							lng : 126.9749014
+			  					};
+			  					
+			  					var locations = [
+			  						 // ['서울역', 37.5546788, 126.9706069], ...  
+			  						
+			  					];
+			  					
+			  					var map = new google.maps.Map(document.getElementById('map'), {
+			  						zoom : 4,
+			  						center: myLatLng,
+			  					});
+			  					
+			  					var infowindow = new google.maps.InfoWindow();
+			  					 var marker, i;
+			  					 
+			  					 // 마커 반복해서 찍기
+			  					 for(i=0; i < locations.length; i++){
+			  						 marker = new google.maps.Marker({
+			  							 position : new google.maps.LatLng(locations[i][1], locations[i][2]),
+			  							 map : map
+			  						 };)
+			  						 
+			  						 google.maps.event.addListener(marker,'click',(function(marker,i){
+			  							 return function(){
+			  								 infowindow.setContent(locations[i][0]);
+			  								 infowindow.open(map,marker);
+			  							 }
+			  						 })(marker, i));
+			  						 
+			  					 } // for문 끝
+			  					
+			  				} // 지도 마커 끝
+			  			    
+			  			}
+			  		});// 위도 경도 ajax 끝
+			  */
 		 },
 		 error : function( errorcode ) {
 			 console.log( errorcode );				
@@ -72,6 +136,9 @@
 		 }
 	 });
  });
+      
+      
+
       
       
       
