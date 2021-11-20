@@ -1,165 +1,239 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html>
-<html>
-  <head>
-  <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-    <title>공연 지도</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+            <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+                <!DOCTYPE html>
+                <html>
 
-    <style type="text/css">
-      
-      #outer > h3 {text-align:center;}
-      
-      #map {height: 50em; width: 65%;}
-      
-      #map-marker-content{
-      border:1px solid green;
-      width:35%;
-      height:50em;
-      position:absolute;
-      top:250px;
-      right: 0; 
-      overflow: auto;  
-      }
-      
-      li { list-style:none;}
-      
-    </style>
-    <script>
-       
-     
-      // Initialize and add the map
-      function initMap() {
-        // The location of Uluru
-        const seoul = { lat: 37.566381, lng: 126.977717 };
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 12,
-          center: seoul,
-        });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
-          position: seoul,
-          map: map,
-        });
-      }
-     
-      
-      
-      
-      // Ajax 공연 정보 가져오기
-      $(function(){
-	 	$.ajax({
-		 url : "${pageContext.request.contextPath}/map/mapViewData.do",
-		 type : 'get',
-		 success : function(data){
-			 console.log(data);
-			 var pArr = [];
-			 var result = "";
-			 for( var i in data.poster){
-				 var innerHtml = ""
-						
-						innerHtml =	  '<li class="cell">'
-						innerHtml +='<img src='+data.poster[i] +'>'
-						innerHtml +='<div class="main_topinfo">'
-						innerHtml +=  '<h1 class="' + data.title[i] + '">' + data.title[i] + '</h1>'
-						innerHtml +=  '<p class="main_placeName"' + 'value="' + data.plcName[i] + '">'+ data.plcName[i] + '</p>' 
-						innerHtml += '<p class="main_placeId" value="' + data.pCode[i] + '">' + data.pCode[i] + '</p>'
-						innerHtml +=  '<hr>'
-						innerHtml +=  '<input type="hidden" class="main_pnum" value="' + data.pnum[i] + '"/>'
-						innerHtml += '</div>'
-						innerHtml +='</li>'
-						
-						$('#map-marker-content').append(innerHtml);		
-						pArr.push(data.pCode[i]);
-							 
-			 }
-			  
-			  			console.log(pArr);
-			  		/*
-			  		// 위도 경도 가져오기 
-			  		$.ajax({
-			  			url :  "${pageContext.request.contextPath}/map/mapViewXY.do",
-			  			type : 'get',
-			  			data : { pnum : pArr }, // controller > RequestMapping 부분에 "produces"를 하지 않으면 문자가 깨져서 옴	
-			  			success : function(data){
-			  				console.log(data);
-			  				
-			  				// 지도 마커
-			  				function initMap(){
-			  					const myLatLng = {
-			  							lat : 37.55902624,
-			  							lng : 126.9749014
-			  					};
-			  					
-			  					var locations = [
-			  						 // ['서울역', 37.5546788, 126.9706069], ...  
-			  						
-			  					];
-			  					
-			  					var map = new google.maps.Map(document.getElementById('map'), {
-			  						zoom : 4,
-			  						center: myLatLng,
-			  					});
-			  					
-			  					var infowindow = new google.maps.InfoWindow();
-			  					 var marker, i;
-			  					 
-			  					 // 마커 반복해서 찍기
-			  					 for(i=0; i < locations.length; i++){
-			  						 marker = new google.maps.Marker({
-			  							 position : new google.maps.LatLng(locations[i][1], locations[i][2]),
-			  							 map : map
-			  						 };)
-			  						 
-			  						 google.maps.event.addListener(marker,'click',(function(marker,i){
-			  							 return function(){
-			  								 infowindow.setContent(locations[i][0]);
-			  								 infowindow.open(map,marker);
-			  							 }
-			  						 })(marker, i));
-			  						 
-			  					 } // for문 끝
-			  					
-			  				} // 지도 마커 끝
-			  			    
-			  			}
-			  		});// 위도 경도 ajax 끝
-			  */
-		 },
-		 error : function( errorcode ) {
-			 console.log( errorcode );				
-			 alert("데이터 전달 실패");
-		 }
-	 });
- });
-      
-      
+                <head>
+                    <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+                    <title>공연 지도</title>
 
-      
-      
-      
-    </script>
-    
-  </head>
-   <body>
-    <c:import url="../common/header.jsp" />
-  	<c:import url="../common/menubar.jsp"/>
-   
-   <div id="outer">
-    <h3>공연 지도</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-	<div id="map-marker-content"></div>
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIZNu96-M9LGBqULXCp6cdlngJ8AUXxnY&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
-    </div>
-    <c:import url="../common/footer.jsp" />
-  </body>
-</html>
+                    <style type="text/css">
+                        #outer>h3 {
+                            text-align: center;
+                        }
+
+                        #map {
+                            height: 50em;
+                            width: 65%;
+                        }
+
+                        #map-marker-content {
+                            border: 1px solid green;
+                            width: 35%;
+                            height: 50em;
+                            position: absolute;
+                            top: 250px;
+                            right: 0;
+                            overflow: auto;
+                        }
+
+                        li {
+                            list-style: none;
+                        }
+                        
+                        /* .overlay{
+                         position: relatve;
+                        left: 0;
+                        right: 0; 
+                        width: 30em;
+                        height: 30em;
+                        border: 1px solid orange;
+                        font-size: 14px;
+                        background: rgba(255, 255, 255, 0.4);
+                        display:none; 
+                       	
+                        } */
+                        
+                        .content {
+                         background: rgba(255, 255, 255, 0.8);
+                        }
+                        
+                        .content > button {
+                        border: 1px solid #d9d9d9;                        
+                        color: #e60000;
+                        
+                        }
+                        
+                        
+                    </style>
+
+
+                </head>
+
+                <body>
+                    <c:import url="../common/header.jsp" />
+                    <c:import url="../common/menubar.jsp" />
+
+                    <div id="outer">
+                        <h3>공연 지도</h3>
+                        
+                        <div id="map"></div>
+                        <!-- <div id="map-marker-content"></div> -->
+                       
+
+                    </div>
+                    <script type="text/javascript"
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a92ee2e5e6487b164a9c52e0e15a4622"></script>
+
+                    <script>
+                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+                            mapOption = {
+                                center: new kakao.maps.LatLng(37.566381, 126.977717), // 지도의 중심좌표
+                                level: 12 // 지도의 확대 레벨
+                            };
+
+                        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다                                    
+                        
+                        var positions = [];                                              
+                        var contents = "";
+                        var overlaies = [];
+
+                        // Ajax 공연 정보 가져오기
+                        $(function () {
+                            $.ajax({
+                                url: "${pageContext.request.contextPath}/map/mapViewData.do",
+                                type: 'get',
+                                success: function (data) {
+                                    console.log(data);                                    
+                                    for (var i in data.poster) {
+                                       
+                                        // 마커를 표시할 위치와 title 객체 배열입니다
+                                        	 positions.push({
+                                        		 poster: data.poster[i],
+                                        		 showtitle: data.title[i], // 공연 이름
+                                                 title: data.pname[i], // 장소 이름                                                
+                                                 startdate: data.startdate[i],
+                                                 enddate: data. enddate[i], 
+                                                 latlng: new kakao.maps.LatLng(data.gpsY[i], data.gpsX[i])
+                                             	
+                                             });
+                                        
+                                        	 var overlayInfo = {
+                                        			 poster: data.poster[i],
+                                        			 showtitle: data.title[i],
+                                                     title: data.pname[i],    // 공연 이름                                                 
+                                                     startdate: data.startdate[i],
+                                                     enddate: data. enddate[i]
+                                                     
+                                                 }
+                                        	 
+                                        	 overlaies.push(overlayInfo);
+                                       
+                                    }
+
+                                    // 마커 이미지의 이미지 주소입니다
+                                    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+                                    for (var i = 0; i < positions.length; i++) {
+
+                                        // 마커 이미지의 이미지 크기 입니다
+                                        var imageSize = new kakao.maps.Size(24, 35);
+
+                                        // 마커 이미지를 생성합니다    
+                                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+                                        // 마커를 생성합니다
+                                        var marker = new kakao.maps.Marker({
+                                            map: map, // 마커를 표시할 지도
+                                            position: positions[i].latlng, // 마커를 표시할 위치
+                                            title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                                            image: markerImage, // 마커 이미지 
+                                            clickable: true
+                                        });
+                                        
+                                        marker.setMap(map); // 마커 표기
+
+                                        // 마커 Click 이벤트 등록
+                                        kakao.maps.event.addListener(marker, 'click', makeOverlayListener(map, marker, overlaies[i]));
+                                        
+                                        // 마커에 표시할 인포윈도우를 생성합니다 
+                                        var infowindow = new kakao.maps.InfoWindow({
+                                        	content: positions[i].title
+                                        });
+                                        
+                                            
+                                     	// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+                                        // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+                                        // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+                                        kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+                                        kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+                                       // kakao.maps.event.addListener(marker, 'click', clickListener(map, marker, customoverlay));
+                                       
+                                     	
+                                    }
+                                                                        
+
+                                 // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+                                    function makeOverListener(map, marker, infowindow) {
+                                        return function() {
+                                            infowindow.open(map, marker);
+                                        };
+                                    }
+
+                                    // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+                                    function makeOutListener(infowindow) {
+                                        return function() {
+                                            infowindow.close();
+                                        };
+                                    }
+	
+                                    
+                                 // 마커에 클릭이벤트를 등록합니다
+                                    kakao.maps.event.addListener(marker, 'click', function() {                                                                                    
+                                    	   customoverlay.setMap(map);                                    	  
+                                    }); 
+                                  
+ 
+                                    
+                                },
+                                error: function (errorcode) {
+                                    console.log(errorcode);
+                                    alert("데이터 전달 실패");
+                                }
+
+                            });
+                        });
+                        
+                        function makeOverlayListener(map, marker, overlay) {
+                            return function () {
+                                // 커스텀 오버레이 생성
+                                var customOverlay = new kakao.maps.CustomOverlay({
+                                    position:marker.getPosition(),
+                                    xAnchor: 0.0,
+                                    yAnchor: 0.5
+                                });
+
+                                var $content = $('<div></div>').addClass('content');
+                                var $poster = $('<div></div>').addClass('poster');
+                                var $info = $('<div></div>').addClass('info_area');
+                                var $close = $('<button type="button">x</button>');
+
+                                // Button click 이벤트 등록
+                                $close.on('click', function() {
+                                    customOverlay.setMap(null);
+                                });
+                                
+                                // 오버레이 들어갈 내용 담기
+                                $poster.append('<img src="' + overlay.poster + '" alt="' + overlay.showtitle + '"/>');                              
+                                $info.append('<h4>' + overlay.showtitle + '</h4>');
+                                $info.append('<p>' + overlay.title + '</p>'); 
+                                $info.append('<p>' + "시작 날짜: " + overlay.startdate + '</p>');
+                                $info.append('<p>' + "종료 날짜: " + overlay.enddate + '</p>');                                
+                                $content.append($poster);
+                                $content.append($info);
+                                $content.append($close);
+
+                                customOverlay.setContent($content[0]);
+                                customOverlay.setMap(map);
+                            }
+                        }
+
+
+
+                    </script>
+                    <c:import url="../common/footer.jsp" />
+                </body>
+
+                </html>

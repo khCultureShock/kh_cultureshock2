@@ -10,37 +10,35 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-
-
 @Controller
 public class MapController {
-	// 서비스 autowired 해주기
-
+	
+	
 	// 공공 데이터를 xml 파싱 시 무조건 선언 해야 함
-	private static String getTagValue(String tag, Element eElement) {
+		private static String getTagValue(String tag, Element eElement) {
 
-		NodeList nlList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
+			NodeList nlList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
 
-		Node nValue = (Node) nlList.item(0);
-		if (nValue == null)
-			return null;
-		return nValue.getNodeValue();
-	}
+			Node nValue = (Node) nlList.item(0);
+			if (nValue == null)
+				return null;
+			return nValue.getNodeValue();
+		}
 	
-	@RequestMapping("/map/mapView.do") 
-	public String mapView() {
-		System.out.println("지도 접근 확인!");
-		return "map/mapView";
-	}
-	
-	
+		@RequestMapping("/map/mapView.do") 
+		public String mapView() {
+			System.out.println("지도 접근 확인!");
+			return "map/mapView";
+		}
+		
+		
+		
 	@RequestMapping("/map/mapViewData.do")
 	@ResponseBody
 	public Map<String, List> mapViewData() {		
@@ -50,7 +48,12 @@ public class MapController {
 		List<String> list2 = new ArrayList<String>();
 		List<String> list3 = new ArrayList<String>();
 		List<String> list4 = new ArrayList<String>();
+		List<String> list5 = new ArrayList<String>();
+		List<String> list6 = new ArrayList<String>();
 		List<String> listPlc = new ArrayList<String>();
+		List<String> listX = new ArrayList<String>();
+		List<String> listY = new ArrayList<String>();
+		
 		
 		
 		Map<String, List> map = new HashMap<String, List>();
@@ -86,6 +89,9 @@ public class MapController {
 						list2.add(getTagValue("poster", eElement));
 						list3.add(getTagValue("mt20id", eElement)); // 공연 ID
 						list4.add(getTagValue("fcltynm", eElement));
+						list5.add(getTagValue("prfpdfrom", eElement)); //시작 날짜
+						list6.add(getTagValue("prfpdfrom", eElement)); // 종료 날짜
+						
 						
 					}
 
@@ -145,45 +151,16 @@ public class MapController {
 		}
 		
 		//************************************************************************
-		map.put("title", list1);
-		map.put("poster", list2);
-		map.put("pnum", list3);
-		map.put("plcName", list4); 
-		map.put("pCode", listPlc); // 공연 시설 id
+		// 위도 경도 뽑아오기
 		
-		System.out.println(map);	
-	return map;
-		
-
-	}
-	
-	
-	// 위도 경도 갖고오기
-	@RequestMapping("/map/mapViewXY.do")
-	@ResponseBody
-	public Map<String, List> mapViewXY(@RequestParam String pnum) {		
-
-		// 위도 경도 api url
-		/*
-		 * "https://www.kopis.or.kr/openApi/restful/pblprfr?service=4f13ee3dcf1b4ad48ab21532e0f5bdd1&stdate=20211201&eddate=20211231&cpage=1&rows=1000&kidstate=Y"
-		 */
-		
-		List<String> listX = new ArrayList<String>();
-		List<String> listY = new ArrayList<String>();
-		
-		
-		Map<String, List> mapXY = new HashMap<String, List>();
-		boolean check = true;
 		try {
-			
-			while (check) {
+			for(int i = 0; i < list3.size(); i++) {
+				String url = "https://www.kopis.or.kr/openApi/restful/prfplc/"+ listPlc.get(i) +"?service=4f13ee3dcf1b4ad48ab21532e0f5bdd1&cpage=1&rows=10";
 				
-				// 위도 경도 포함한 api주소
-				String url = "https://www.kopis.or.kr/openApi/restful/prfplc/"+ pnum +"?service=4f13ee3dcf1b4ad48ab21532e0f5bdd1&cpage=1&rows=10";
 						
 				DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 				DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
-				Document doc = dBuilder.parse(url);
+				Document doc = dBuilder.parse(url); 
 			
 
 				doc.getDocumentElement().normalize();
@@ -191,7 +168,6 @@ public class MapController {
 				NodeList nList = doc.getElementsByTagName("db");
 				
 				
-				System.out.println("파싱할 리스트 수 : " + nList.getLength());
 				for (int temp = 0; temp < nList.getLength(); temp++) {
 					Node nNode = nList.item(temp);
 					
@@ -201,8 +177,7 @@ public class MapController {
 						Element eElement = (Element) nNode;
 
 						listX.add(getTagValue("lo", eElement));
-						listY.add(getTagValue("poster", eElement));
-						
+						listY.add(getTagValue("la", eElement));
 					}
 
 				}
@@ -211,19 +186,26 @@ public class MapController {
 					check = false;
 				}
 
-			} // while문 끝
+			} // for문 끝
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
-		mapXY.put("gpsX", listX);
-		mapXY.put("gpsY", listY);
 		
+		//************************************************************************
+		map.put("title", list1);
+		map.put("poster", list2);
+		map.put("pnum", list3);
+		map.put("pname", list4); 
+		map.put("startdate", list5);
+		map.put("enddate", list6);
+		map.put("pCode", listPlc); // 공연 시설 id
+		map.put("gpsX", listX);
+		map.put("gpsY", listY);
 		
-		System.out.println(mapXY);
-		return mapXY;
+		System.out.println(map);	
+	return map;
+		
 
 	}
-
 }
