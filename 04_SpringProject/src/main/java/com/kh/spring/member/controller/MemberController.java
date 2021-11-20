@@ -91,6 +91,7 @@ public class MemberController {
 			// 아이디는 있었다!
 			if( bcryptPasswordEncoder.matches(password, result.getPassword())) {
 				// bcrypt에서 비교를 위한 메소드를 제공해준다!
+				
 				msg = "로그인 성공!";
 				
 				model.addAttribute("member", result);

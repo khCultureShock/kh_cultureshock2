@@ -13,7 +13,7 @@ import com.kh.spring.board.model.vo.Board;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
-	
+
 	@Autowired
 	SqlSessionTemplate sqlSession;
 	
@@ -40,8 +40,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int insertAttachment(Attachment a) {
 		
-		// return sqlSession.insert("boardSQL.insertAttachment", a);
-		return 0;
+		return sqlSession.insert("boardSQL.insertAttachment", a);
 	}
 
 	@Override

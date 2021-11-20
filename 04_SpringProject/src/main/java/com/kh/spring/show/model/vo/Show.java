@@ -1,4 +1,4 @@
-package com.kh.spring.art.model.vo;
+package com.kh.spring.show.model.vo;
 
 import java.sql.Date;
 
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Component
-public class Art {
+public class Show {
 
 	private String artId;
 	private String artTitle;

@@ -60,11 +60,11 @@ public class NoticeServiceImpl implements NoticeService {
 		return notice;
 	}
 
-	@Override
-	public List<Attachment> selectAttachmentList(int noticeNo) {
-		
-		return noticeDAO.selectAttachmentList(noticeNo);
-	}
+	/*
+	 * @Override public List<Attachment> selectAttachmentList(int noticeNo) {
+	 * 
+	 * return noticeDAO.selectAttachmentList(noticeNo); }
+	 */
 
 	@Override
 	public Notice updateView(int noticeNo) {
@@ -73,30 +73,32 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public int updateNotice(Notice notice, List<Attachment> attachList) {
+	public int updateNotice(Notice notice) {
 		
 		int totalResult = 0;
 		
-		List<Attachment> originList = noticeDAO.selectAttachmentList(notice.getNoticeNo());
+		/*
+		 * List<Attachment> originList =
+		 * noticeDAO.selectAttachmentList(notice.getNoticeNo());
+		 */
 		
 		totalResult = noticeDAO.updateNotice(notice);  // DAO 로 이동하기
 		
 		if(totalResult == 0) throw new NoticeException("게시글 수정 실패!");
 		
-		if( originList.size() > 0) { 
-			// 기존 첨부파일이 DB에 있다면
-			totalResult = noticeDAO.deleteAttachment(notice.getNoticeNo());
-			
-			if(totalResult == 0) throw new NoticeException("첨부파일 삭제 실패!");
-		}
+		/*
+		 * if( originList.size() > 0) { // 기존 첨부파일이 DB에 있다면 totalResult =
+		 * noticeDAO.deleteAttachment(notice.getNoticeNo());
+		 * 
+		 * if(totalResult == 0) throw new NoticeException("첨부파일 삭제 실패!"); }
+		 */
 		
-		if( attachList.size() > 0) {
-			for(Attachment a : attachList) {
-				totalResult = noticeDAO.updateAttachment(a);
-				
-				if(totalResult == 0) throw new NoticeException("게시글 첨부파일 수정 실패!");
-			}
-		}
+		/*
+		 * if( attachList.size() > 0) { for(Attachment a : attachList) { totalResult =
+		 * noticeDAO.updateAttachment(a);
+		 * 
+		 * if(totalResult == 0) throw new NoticeException("게시글 첨부파일 수정 실패!"); } }
+		 */
 		
 		return totalResult;
 	}
@@ -107,10 +109,10 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDAO.deleteNotice(noticeNo);
 	}
 
-	@Override
-	public int deleteFile(int attNo) {
-		
-		return noticeDAO.deleteFile(attNo);
-	}
+	/*
+	 * @Override public int deleteFile(int attNo) {
+	 * 
+	 * return noticeDAO.deleteFile(attNo); }
+	 */
 
 }

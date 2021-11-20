@@ -79,10 +79,10 @@ $(function(){
                 result 
                     += '<div class="art">'
                     + '<div class="art-img">'
-                    + '<img src="'+ art.artimg +'">'
+                    + '<img src="'+ art.artImg +'">'
                     + '</div>'
                     + '<div class="art-title">'
-                    + '<button class="art-button" onclick="location.href="detail/detail.do?""><h6 class="art-title-font">' + art.arttitle + '</h6></button>' 
+                    + '<button class="art-button" onclick="location.href="detail/detail.do?""><h6 class="art-title-font">' + art.artTitle + '</h6></button>' 
                     + '</div></div>'
             }
  				

@@ -16,14 +16,14 @@ public interface NoticeService {
 
 	Notice selectOneNotice(int noticeNo);
 
-	List<Attachment> selectAttachmentList(int noticeNo);
+	/* List<Attachment> selectAttachmentList(int noticeNo); */
 
 	Notice updateView(int noticeNo);
 	
-	int updateNotice(Notice notice, List<Attachment> attachList);
+	int updateNotice(Notice notice);
 	
 	int deleteNotice(int noticeNo);
 
-	int deleteFile(int attNo);
+	/* int deleteFile(int attNo); */
 	
 }
