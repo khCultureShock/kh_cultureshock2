@@ -9,6 +9,7 @@
 	<meta charset="UTF-8">
 	<title>게시글 작성</title>
 	<c:import url="../common/header.jsp"/>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/write.css" />
 	<style>
 		div#board-container{width:400px; margin:0 auto; text-align:center;}
 		div#board-container input{margin-bottom:15px;}
@@ -45,33 +46,61 @@
 		<c:import url="../common/menubar.jsp"/>
 		<div id="board-container">
 			<form name="boardFrm" action="${pageContext.request.contextPath}/board/boardFormEnd.do" method="post" onsubmit="return validate();" enctype="multipart/form-data">
-				<input type="text" class="form-control" placeholder="제목" name="boardTitle" id="boardTitle" required>
-				<input type="text" class="form-control" name="boardWriter" value="${member.userId}" readonly required>
-				<!-- input:file소스 : https://getbootstrap.com/docs/4.1/components/input-group/#custom-file-input -->
-				<!-- style.css에서 div의  padding:10px을 제거함 -->
-				<div class="input-group mb-3" style="padding:0px;">
-				  <div class="input-group-prepend" style="padding:0px;">
-				    <span class="input-group-text">첨부파일1</span>
-				  </div>
-				  <div class="custom-file">
-				    <input type="file" class="custom-file-input" name="upFile" id="upFile1" multiple>
-				    <label class="custom-file-label" for="upFile1">파일을 선택하세요</label>
-				  </div>
-				</div>
-				<div class="input-group mb-3" style="padding:0px;">
-				  <div class="input-group-prepend" style="padding:0px;">
-				    <span class="input-group-text">첨부파일2</span>
-				  </div>
-				  <div class="custom-file">
-				    <input type="file" class="custom-file-input" name="upFile" id="upFile2">
-				    <label class="custom-file-label" for="upFile2">파일을 선택하세요</label>
-				  </div>
-				</div>
-			    <textarea class="form-control" name="boardContent" placeholder="내용" required></textarea>
-				<br />
-				<input type="submit" class="btn btn-outline-success" value="저장" >
-			</form>
-		</div>
+            <td>
+                <hr>
+                <h1>게시글 작성</h1>
+                <hr>
+            </td>
+            
+            <tr>
+                <td class="title">제목</td>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="제목입력" name="boardTitle" id="boardTitle" required>
+                        </td>
+                    </tr>
+                </tr>
+                
+                <tr>
+                    <td class="write">작성자</td>
+                        <tr>
+                             <td>
+                                <input type="text" class="form-control" name="boardWriter" value="${member.userId}" readonly required>
+                            </td>
+                        </tr>
+                </tr>
+                
+                <tr>
+                 <td class="nput-group mb-3">첨부파일</td>
+                    <tr>
+                        <td >
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="upFile" id="upFile1" multiple>
+                                    <label class="custom-file-label" for="upFile1">파일을 선택하세요</label>
+                                </div>
+                        </td>
+                    </tr>
+                    </tr>
+                   
+            </tr>
+            <br /><br />
+            <tr>
+                <td class="text">내용</td>
+                    <tr>
+                        <td>
+                            <textarea class="form-control" name="boardContent" placeholder="내용입력" required></textarea>
+                        </td>
+                    </tr>
+                </tr>
+        
+        <br /><br /><br />   
+        <p align="middle">
+            <input type="submit" class="btn btn-outline-success" value="등록" >
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" class="btn btn-outline-info" onclick="location.href='${pageContext.request.contextPath}/board/boardList.do'" value="취소" >
+        </p>
+	</form>
+	</div>
 		<c:import url="../common/footer.jsp"/>
 	</div>
 </body>

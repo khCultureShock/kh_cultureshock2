@@ -31,16 +31,18 @@
 	<div id="container">
 		<c:import url="../common/menubar.jsp"/>
 			<section id="notice-container" class="container">
-				<p>공지사항 입니다.</p>
+				<p>Culture Shock 공지사항 입니다.</p>
 				<p>총 ${totalContents }건의 게시물이 있습니다.</p>
+				<c:if test="${member.userStatus == 1}">
 				<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success" onclick="fn_goNoticeForm();"/>
+				</c:if>
 				<table id="tbl-notice" class="table table-striped table-hover">
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
 						<th>작성자</th>
 						<th>작성일</th>
-						<th>첨부파일</th>
+						<!-- <th>첨부파일</th> -->
 						<th>조회수</th>
 					</tr>
 					<c:forEach items="${list}" var="n"> 
@@ -49,11 +51,11 @@
 						<td>${n.noticeTitle}</td>
 						<td>${n.noticeWriter}</td>
 						<td>${n.noticeDate}</td>
-						<td align="center">
-							<c:if test="${n.fileCount>0}">
+						<%-- <td align="center">
+							<c:if test="${b.fileCount>0}">
 								<img alt="첨부파일" src="${pageContext.request.contextPath}/resources/images/file.png" width=16px>
 							</c:if>
-						</td>
+						</td> --%>
 						<td>${n.noticeReadCount }</td>
 					</tr>
 					</c:forEach>

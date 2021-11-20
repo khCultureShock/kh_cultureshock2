@@ -17,12 +17,13 @@ public class Member {
 	private String userId;
 	private String password;
 	private String userName;	
-	private Integer age;	
-	private String email;
-	private String phone;
-	private Date enrollDate;
 	private String gender;
-	
+	private Integer age;	
+	private String phone;
+	private String email;
+	private int userStatus;
+	private Date joinDate;
+
 	public Member(String userId, String password) {
 		this.userId = userId;
 		this.password = password;

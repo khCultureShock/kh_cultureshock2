@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+tr, td {
+    width: 100px;
+    height: 30px;
+}
+
+textarea {
+	width: 600px;
+	height: 300px;
+}
+td#title, #write, #nput-group mb-3, #text {
+    font-size: large;
+    font-weight: bold;
+}
