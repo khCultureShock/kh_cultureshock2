@@ -33,8 +33,19 @@
 	
 	<select id="checkIdDuplicate" statementType="CALLABLE" parameterType="hashmap" >
 		{ CALL ID_DUP_CHECK( #{ userId, mode=IN, jdbcType=VARCHAR }, 
-		                     #{ result, mode=OUT, jdbcType=NUMERIC, javaType=integer }) }
+		                     #{ result, mode=OUT, jdbcType=NUMERIC, javaType=integer }) }		                   
 	</select>
+	
+	<select id="idFind" parameterType="string" resultMap="resultMember">
+		SELECT * FROM MEMBER WHERE PHONE = #{ phone }	
+	</select>
+	
+	<update id="changePw" parameterType="string">
+		UPDATE MEMBER 
+		SET PASSWORD = #{ password }
+		WHERE USERID = #{ userId }
+	</update>
+	
 	
 	
 	

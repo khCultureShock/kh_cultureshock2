@@ -227,6 +227,8 @@
 
                                 customOverlay.setContent($content[0]);
                                 customOverlay.setMap(map);
+                                // 마커 누르면 중앙으로 오게끔
+                                // 같은 장소에서 열리는 행사 스크롤 내려서 볼 수 있게
                             }
                         }
 

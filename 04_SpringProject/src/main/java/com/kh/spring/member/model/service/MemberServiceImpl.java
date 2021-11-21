@@ -49,6 +49,21 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberDAO.checkIdDuplicate(hmap);
 	}
+
+	@Override
+	public Member idFind(String phone) {
+		
+		return memberDAO.idFind(phone);
+	}
+
+	@Override
+	public int changePw(Member member) {
+	
+		
+		return memberDAO.changePw(member);
+	}
+
+	
 	
 	
 	

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import com.kh.spring.exception.MemberException;
 import com.kh.spring.member.model.service.MemberService;
 import com.kh.spring.member.model.vo.Member;
@@ -211,10 +211,62 @@ public class MemberController {
 		return map;
 	}
 	
+	@RequestMapping("/member/findId.do")
+	public String findId(@RequestParam String userName, 
+						 @RequestParam String phone,
+							  Model model) {  //Model : HttpServletRequest / HttpServletResponse
+		
+		// member table phone 컬럼 varchar2로 바꾼 상태!
+		
+		System.out.println("아이디 찾기 기능 접근 확인!");
+		
+		// 1. 아이디를 통해 회원 정보 조회	
+		
+		Member result = memberService.idFind(phone);
+		
+		String loc = "/";
+		String msg = "";
+		
+		if( result.getUserName().equals(userName) ) {								
+				msg = "아이디는 " + result.getUserId() + " 입니다.";
+										
+						
+		} else {
+			msg = "잘못 입력하셨습니다.";
+		}
+		
+		model.addAttribute("loc", loc);
+		model.addAttribute("msg", msg);
+		
+		return "common/msg";
+		
+	}
 	
-	
-	
-	
+	@RequestMapping("/member/changePw.do")
+	public String changePw(Member member,
+						   Model model) {
+		String passBefo = member.getPassword();
+		String passAft = bcryptPasswordEncoder.encode(passBefo); // 암호화
+		
+		member.setPassword(passAft);
+		
+		int result = memberService.changePw(member);
+		
+		String loc = "/";
+		String msg = "";
+		
+		if( result > 0 ) {
+			msg = "비밀번호 변경이 완료되었습니다.";
+			
+		} else {
+			msg = "비밀번호 변경 실패";
+		}
+		
+		model.addAttribute("loc", loc);
+		model.addAttribute("msg", msg);
+		
+		return "common/msg";
+	}
 	
 	
 	
