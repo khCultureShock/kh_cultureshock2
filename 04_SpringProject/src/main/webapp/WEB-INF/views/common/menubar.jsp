@@ -52,6 +52,9 @@
 			   <li class="nav-item">
               <a href="${pageContext.request.contextPath}/map/mapView.do" class="nav-link">지도</a>
            </li>
+           <li class="nav-item">
+              <a href="${ pageContext.request.contextPath }/search/searchList.do" class="nav-link">검색</a>
+           </li>
 		    </ul>
 		   
 			<!-- 로그인처리  -->
@@ -164,7 +167,7 @@
                             </div>
                         </div>
                     </div>		
-	<!-- 비밀번호 재설정 모달 끝 -->
+	<!— 비밀번호 재설정 모달 끝 —>
 	
 	<script>
 	/* 함수 */
@@ -186,8 +189,3 @@
 	
 	
 </header>
-
-
-
-
-
