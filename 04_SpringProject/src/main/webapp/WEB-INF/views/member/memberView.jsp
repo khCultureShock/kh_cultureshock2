@@ -20,11 +20,23 @@
 		<c:import url="../common/menubar.jsp"/>
 	<div id="update-container">
 		<form name="memberUpdateFrm" action="${pageContext.request.contextPath}/member/memberUpdate.do" method="post">
+			<td>
+                <hr>
+                <h1>마이페이지</h1>
+                <hr>
+            </td>
+          
+			<td>아이디</td>
 			<input type="text" class="form-control" placeholder="아이디 (4글자이상)" name="userId" id="userId_" value="${member.userId}" readonly required>
+			<td>이름</td>
 			<input type="text" class="form-control" placeholder="이름" name="userName" id="userName" value="${member.userName}" required>
+			<td>나이</td>
 			<input type="number" class="form-control" placeholder="나이" name="age" id="age" value="${member.age}">
+			<td>이메일</td>
 			<input type="email" class="form-control" placeholder="이메일" name="email" id="email" value="${member.email}" required>
+			<td>전화번호</td>
 			<input type="tel" class="form-control" placeholder="전화번호 (예:01012345678)" name="phone" id="phone" maxlength="11" value="${member.phone}" required>
+			<td>성별</td>
 			<select class="form-control" name="gender" required>
 			  <option value="" disabled selected>성별</option>
 			  <option value="M" ${member.gender=='M'?'selected':'' }>남</option>
@@ -51,6 +63,7 @@
 				<label for="hobby4" class="form-check-label" >여행</label>&nbsp;
 			</div> --%>
 			<br />
+			<input type="button" class="btn btn-outline-success" onclick="location.href='${pageContext.request.contextPath}/wishlist/wishlist.do'" value="장바구니"> <br><br>
 			<input type="submit" class="btn btn-outline-success" value="수정" >&nbsp;
 			<input type="reset" class="btn btn-outline-success" value="취소">&nbsp;
 			<input type="button" class="btn btn-outline-success" onclick="location.href='${pageContext.request.contextPath}/member/memberDelete.do'" value="탈퇴">

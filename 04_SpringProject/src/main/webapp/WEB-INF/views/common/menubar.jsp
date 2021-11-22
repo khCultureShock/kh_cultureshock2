@@ -37,7 +37,7 @@
 				</a>
 			    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/show/showView.do">지역별</a>
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/demo/selectDevList.do">종류별</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/play/playList.do">종류별</a>
 				</div>
 			  </li>
 			  <li class="nav-item dropdown">
