@@ -83,24 +83,34 @@ $(function(){
                 result 
                     += '<div class="art">'
                     + '<div class="art-img">'
-                    + '<img src="'+ art.artImg +'">'
+                    + '<img src="'+ art.artImg +'")" onclick="Detail('+'\''+ art.artId +'\''+');">'
                     + '</div>'
                     + '<div class="art-title">'
-                    + '<button class="art-button" onclick="location.href="detail/detail.do?""><h6 class="art-title-font">' + art.artTitle + '</h6></button>' 
+                    + '<button class="art-button" onclick="location.href="detail/detail.do""><h6 class="art-title-font">' + art.artTitle + '</h6></button>' 
                     + '</div></div>'
             }
- 				
+           
             $('.firstPar').html(result);
             
         },  error: function(error) {
             alert("오류");
             console.log(error);
         },
+        
     });
  });
+ 
+ function Detail(artId){
+						location.href = "${pageContext.request.contextPath}/detail/detail.do?artId="+artId; 
+					   }
  
 //<a href="${pageContext.request.contextPath}/poster/Notredame.do" style="margin-left:45px;">노트르담 드 파리</a> <!-- 링크 변경 적용 필요 -->
 
 </script>
+
+<!-- onclick="Detail('${art.artId}');"  -->
+<!-- 		function Detail(artId){
+			location.href = "${pageContext.request.contextPath}/detail/detail.do?artId="+artId;
+		} -->
 
 </html>
