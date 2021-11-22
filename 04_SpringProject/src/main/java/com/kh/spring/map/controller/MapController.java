@@ -205,7 +205,18 @@ public class MapController {
 		
 		System.out.println(map);	
 	return map;
-		
-
 	}
+	
+	@RequestMapping("/map/mapSelectList.do")
+	public String mapSelecList() {
+		
+		
+		return "search/searchList";
+	}
+	
+	
+	
+	
+	
+	
 }

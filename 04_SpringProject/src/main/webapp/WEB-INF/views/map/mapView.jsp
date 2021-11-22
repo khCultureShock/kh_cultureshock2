@@ -217,12 +217,7 @@
                                 var $content = $('<div></div>').addClass('content');
                                 var $poster = $('<div></div>').addClass('poster');
                                 var $info = $('<div></div>').addClass('info_area');
-                                //var $close = $('<button type="button">x</button>'); // 닫기 버튼
-
-                               /*  // Button click 이벤트 등록
-                                $close.on('click', function() {
-                                    customOverlay.setMap(null);
-                                }); */
+                                
                                 
                                 // 오버레이 들어갈 내용 담기
                                 $poster.append('<img src="' + overlay.poster + '" alt="' + overlay.showtitle + '" width ="400" height="550" />');                              
@@ -242,12 +237,17 @@
                                $('#map-marker-content').html($content);
                                
                                
-                                /** 개선 사항                                
-                                // 같은 장소에서 열리는 행사 스크롤 내려서 볼 수 있게
-                                */
+                               
                             }
                             
                         }
+                        
+                        $(function(){
+                        	$('div[class="poster"]').on('click', function() {
+                        		var pname = positions.title;        						
+            					location.href = "${pageContext.request.contextPath}/map/mapSelectList.do?pname="+pname;
+                        	}
+                        });
                         
 
 
