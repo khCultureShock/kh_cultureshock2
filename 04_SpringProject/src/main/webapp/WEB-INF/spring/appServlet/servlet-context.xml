@@ -41,8 +41,10 @@
 			<mapping path="/member/memberUpdate.do"/>
 			<mapping path="/board/**/*.do" />
 			<mapping path="/notice/**/*.do" />
+			<mapping path="/play/**/*.do" />
 			<exclude-mapping path="/board/boardList.do" />			
-			<exclude-mapping path="/notice/noticeList.do" />	
+			<exclude-mapping path="/notice/noticeList.do" />
+			<exclude-mapping path="/play/playList.do" />	
 			<beans:bean id="loginCheck" class="com.kh.spring.common.LoginInterceptor"/>
 		</interceptor>
 	</interceptors>
