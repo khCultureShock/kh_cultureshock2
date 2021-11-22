@@ -37,7 +37,7 @@
 				</a>
 			    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/demo/demo.do">지역별</a>
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/demo/selectDevList.do">종류별</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/category/cateList.do">종류별</a>
 				</div>
 			  </li>
 			  <li class="nav-item dropdown">
@@ -67,6 +67,9 @@
 		    <c:if test="${!empty member}">
 		        <span><a href="${pageContext.request.contextPath}/member/memberView.do?userId=${member.userId}" title="내 정보보기">${member.userName}</a> 님, 안녕하세요</span>
 		        &nbsp;
+		        <a class="navbar-brand" href="${pageContext.request.contextPath}/wish/wishList.do">
+         		<img src="${pageContext.request.contextPath }/resources/images/bookmark.png" alt="cart" width="30px" height="30px"/>
+      			</a>
 		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">로그아웃</button>
 		    </c:if>
 		 </div>
