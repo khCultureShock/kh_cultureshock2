@@ -22,7 +22,7 @@
 			$("tr[id]").on("click",function(){
 				var artNo = $(this).attr("id");
 				console.log("artNo="+artNo);
-				location.href = "${pageContext.request.contextPath}/play/playView.do?no="+artNo;
+				location.href = "${pageContext.request.contextPath}/art/artView.do?no="+artNo;
 			});
 		});
 	</script>
