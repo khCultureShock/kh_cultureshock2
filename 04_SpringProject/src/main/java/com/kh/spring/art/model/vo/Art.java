@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Component
 public class Art {
+	
 	private int artNo;
 	private String artId;
 	private String artTitle;
