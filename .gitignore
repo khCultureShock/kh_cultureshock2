@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,eclipse,java
+# Created by https://www.toptal.com/developers/gitignore/api/eclipse,macos,java
+# Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,macos,java
 
 ### Eclipse ###
 .metadata
@@ -15,7 +15,7 @@ local.properties
 .loadpath
 .recommenders
 
-# Directories #
+# Directories 
 /build/
 /bin/
 target/
@@ -78,6 +78,7 @@ META-INF/
 # Spring Boot Tooling
 .sts4-cache/
 
+
 ### Java ###
 # Compiled class file
 *.class
@@ -103,30 +104,33 @@ META-INF/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
 
-# Dump file
-*.stackdump
+# Icon must end with two \r
+Icon
 
-# Folder config file
-[Dd]esktop.ini
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# Thumbnails
+._*
 
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
-# Windows shortcuts
-*.lnk
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,macos,java

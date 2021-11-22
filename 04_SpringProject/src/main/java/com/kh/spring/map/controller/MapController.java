@@ -15,9 +15,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import com.kh.spring.common.Utils;
+import com.kh.spring.common.UtilsSearch;
 
 @Controller
 public class MapController {
+	
+	@Autowired
+	MapService mapService;
 	
 	
 	// 공공 데이터를 xml 파싱 시 무조건 선언 해야 함
@@ -205,7 +210,59 @@ public class MapController {
 		
 		System.out.println(map);	
 	return map;
-		
-
 	}
+	
+	@RequestMapping("/map/mapPlcSrch.do")
+	public String mapPlcSrch(Model model, @RequestParam(required = false) String pname,
+										  @RequestParam(value="cPage",required=false,defaultValue="1")int cPage) {
+		int numPerPage = 12;
+		List<Art>alist= mapService.searchInfo(cPage,numPerPage,text);
+		int totalContents = mapService.searchInfototal(text);
+		String pageBar = UtilsSearch.getPageBar(totalContents, cPage, numPerPage, "mapPlcSrch.do",text);
+		
+		model.addAttribute("alist",alist);
+		model.addAttribute("numPerPage",numPerPage);
+		model.addAttribute("totalContents", totalContents);
+		model.addAttribute("pageBar",pageBar);
+		
+		
+		System.out.println("searchInfo model : " + model);
+		
+		return "search/searchList";
+		
+	}
+	
+	
+	
+//	@RequestMapping("/map/mapSelectList.do")
+//	public String mapSelecList(@RequestParam(value="cPage", required=false, defaultValue="1") int cPage,
+//			Model model
+//			) {
+//			
+//			// 한 페이지당 게시글 수
+//			int numPerPage = 10;
+//			
+//			// 현재 페이지의 게시글 수
+//			List<Map<String, String>> list = boardService.selectBoardList(cPage, numPerPage);
+//			
+//			// 전체 게시글 수
+//			int totalContents = boardService.selectBoardTotalContents();
+//			
+//			// 페이지 처리 Utils 사용하기
+//			String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "boardList.do");
+//			
+//			System.out.println("list : " + list);
+//			System.out.println("pageBar : " + pageBar);
+//			
+//			
+//			model.addAttribute("list", list);
+//			model.addAttribute("totalContents", totalContents);
+//			model.addAttribute("numPerPage", numPerPage);
+//			model.addAttribute("pageBar", pageBar);
+//			
+//			return "board/boardList";
+//		}
+		
+	
+	
 }
