@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Culture Shock4</title>
+	<title>Culture Shock</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index.css" />
 </head>
 <body>
@@ -21,11 +21,15 @@
 			   
 			</div>
 			
+			<div style="height:60px;"> <hr style="margin-top:28px;"/> </div>
+			
 			<div class="secondPar">
 				<a href="${pageContext.request.contextPath}/calendar/selectCalendarList.do">
 					<img src="${pageContext.request.contextPath }/resources/images/calendar.png"" alt="달력"> <!-- 링크 필요 -->
 				</a> 
 			</div>
+			
+			<div style="height:60px;"> <hr style="margin-top:32px;"/> </div>
 			
 			<div class="thirdPar">
 					<div class="noticeThumbnail">

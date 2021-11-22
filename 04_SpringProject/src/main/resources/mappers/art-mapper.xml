@@ -5,11 +5,11 @@
 
 	<select id="selectList" parameterType="int" resultType="Art">
 		SELECT *
-      FROM (SELECT ROWNUM A, ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE,
+		FROM (SELECT ROWNUM A, ART_NO, ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE,
                      ART_IMG, ART_GENRE, ART_STATUS ,ART_OPENRUN, ART_AREA
-            FROM   (SELECT * FROM ART ORDER BY ART_ID DESC)
-            WHERE ROWNUM &lt; 8)
-      WHERE A  &gt; 3
+		      FROM   (SELECT * FROM ART ORDER BY ART_ID DESC)
+		      WHERE ROWNUM &lt; 8)
+		WHERE A  &gt; 3
 	</select>
 		<!-- SELECT * FROM ART ORDER BY ARTNO DESC -->
 		<!-- &lt; : < , &gt; : > -->

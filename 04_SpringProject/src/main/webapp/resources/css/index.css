@@ -54,6 +54,10 @@ section {
  		background-color:white;
  		border : none;
  		}
+
+.art-title-font{
+	color: #0086D3;
+} 		
  
  .noticeThumbnail {
  		width: 450px;
