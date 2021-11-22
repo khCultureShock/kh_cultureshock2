@@ -21,11 +21,15 @@
 			   
 			</div>
 			
+			<div style="height:60px;"> <hr style="margin-top:28px;"/> </div>
+			
 			<div class="secondPar">
 				<a href="${pageContext.request.contextPath}/calendar/selectCalendarList.do">
 					<img src="${pageContext.request.contextPath }/resources/images/calendar.png"" alt="달력"> <!-- 링크 필요 -->
 				</a> 
 			</div>
+			
+			<div style="height:60px;"> <hr style="margin-top:32px;"/> </div>
 			
 			<div class="thirdPar">
 					<div class="noticeThumbnail">
@@ -79,10 +83,10 @@ $(function(){
                 result 
                     += '<div class="art">'
                     + '<div class="art-img">'
-                    + '<img src="'+ art.artimg +'">'
+                    + '<img src="'+ art.artImg +'">'
                     + '</div>'
                     + '<div class="art-title">'
-                    + '<button class="art-button" onclick="location.href="detail/detail.do?""><h6 class="art-title-font">' + art.arttitle + '</h6></button>' 
+                    + '<button class="art-button" onclick="location.href="detail/detail.do?""><h6 class="art-title-font">' + art.artTitle + '</h6></button>' 
                     + '</div></div>'
             }
  				
