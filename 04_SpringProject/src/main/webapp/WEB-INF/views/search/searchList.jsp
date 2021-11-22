@@ -66,11 +66,9 @@ body, html, section{
 		<div class="list_container">
 			<c:forEach items="${alist}" var="alist" varStatus="status">
 				<div class="listArea">
-					<img src="${alist.artImg}">
-						<%-- <div class="main_topinfo" style="display:none;">
-							<button class="main_toprevieww" onclick="goDetail('${alist.artId}'); return false;"
-							style="border: none; background-color: var(--black-color);color: #0086D3;">작품보기</button>
-						</div>	 --%>
+				
+					<img src="${alist.artImg}" onclick="Detail('${alist.artId}');">
+					
 					<div class="list_content">
 							<script>
 							 $(document).ready(function(){ 
@@ -90,6 +88,12 @@ body, html, section{
 	</section>
 	
 	<c:import url="../common/footer.jsp"/>
+	
+	<script>
+		function Detail(artId){
+			location.href = "${pageContext.request.contextPath}/detail/detail.do?artId="+artId;
+		}
+	</script>
 </body>
 
 </html>
