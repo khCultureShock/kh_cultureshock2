@@ -50,12 +50,12 @@
 				</div>
 			  </li>
 			   <li class="nav-item">
-              <a href="${pageContext.request.contextPath}/map/mapView.do" class="nav-link">지도</a>
-           </li>
-           <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/search/searchList.do" class="nav-link">검색</a>
-           </li>
-		    </ul>
+             	 <a href="${ pageContext.request.contextPath }/map/mapView.do" class="nav-link">지도</a>
+           	  </li>
+           	  	<li class="nav-item">
+             	 <a href="${ pageContext.request.contextPath }/search/searchList.do" class="nav-link">검색</a>
+           	  </li>
+		    </ul>   
 		   
 			<!-- 로그인처리  -->
 			<c:if test="${empty member}">
@@ -65,7 +65,7 @@
 		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/member/memberEnroll.do'">회원가입</button>
 		    </c:if>
 		    <c:if test="${!empty member}">
-		        <span><a href="${pageContext.request.contextPath}/member/memberView.do?userId=${member.userId}" title="내 정보보기">${member.userName}</a> 님, 안녕하세요</span>
+		        <span><a href="${pageContext.request.contextPath}/member/memberView.do?userId=${member.userId}" title="내정보보기">${member.userName}</a> 님, 안녕하세요</span>
 		        &nbsp;
 		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">로그아웃</button>
 		    </c:if>
@@ -82,7 +82,7 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-          
+          <!--로그인폼 -->
           <!-- https://getbootstrap.com/docs/4.1/components/forms/#overview -->
           <form action="${pageContext.request.contextPath}/member/memberLogin.do" method="post">
 	      <div class="modal-body">
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                     </div>		
-	<!— 비밀번호 재설정 모달 끝 —>
+	<!-- 비밀번호 재설정 모달 끝 -->
 	
 	<script>
 	/* 함수 */
