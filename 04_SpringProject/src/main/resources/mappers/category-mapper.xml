@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="categorySQL">
+	
+	<select id="selectCateTotalContents" resultType="_int">
+		SELECT COUNT(*) FROM ART
+		WHERE ART_GENRE = #{ artGenre }
+	</select>
+ 
+ 	<select id="selectCateList" resultType="Art">
+ 		SELECT ART_NO, ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE, ART_IMG, ART_GENRE, ART_STATUS, ART_OPENRUN, ART_AREA
+		FROM ART
+		WHERE ART_GENRE = #{ artGenre }
+ 	</select>
+ 
+ 	<!-- index to searchList  -->
+ 	<select id="cateInfo" parameterType="String" resultType="Art">
+ 		SELECT ART_NO, ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE, ART_IMG, ART_GENRE, ART_STATUS, ART_OPENRUN, ART_AREA
+		FROM ART
+		WHERE ART_ID LIKE '%' || #{text} || '%'
+			  OR ART_TITLE LIKE '%' || #{text} || '%'
+			  OR ART_PLACE LIKE '%' || #{text} || '%'
+			  OR ART_GENRE LIKE '%' || #{text} || '%'
+			  OR ART_STATUS LIKE '%' || #{text} || '%'
+			  OR ART_OPENRUN LIKE '%' || #{text} || '%'
+			  OR ART_AREA LIKE '%' || #{text} || '%'
+ 	</select>
+ 
+ 	<!-- index to searchList  -->
+ 	<select id="cateInfototal" parameterType="String" resultType="_int">
+ 		SELECT COUNT(*) 
+ 		FROM ART 
+ 		WHERE ART_ID LIKE '%' || #{text} || '%'
+			  OR ART_TITLE LIKE '%' || #{text} || '%'
+			  OR ART_PLACE LIKE '%' || #{text} || '%'
+			  OR ART_GENRE LIKE '%' || #{text} || '%'
+			  OR ART_STATUS LIKE '%' || #{text} || '%'
+			  OR ART_OPENRUN LIKE '%' || #{text} || '%'
+			  OR ART_AREA LIKE '%' || #{text} || '%'
+ 	</select>	
+ 
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
