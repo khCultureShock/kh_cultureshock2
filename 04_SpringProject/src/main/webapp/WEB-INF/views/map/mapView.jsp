@@ -27,25 +27,14 @@
                             top: 250px;
                             right: 0;
                             overflow: auto;
+                            cursor: pointer;
                         }
 
                         li {
                             list-style: none;
                         }
-                        
-                        /* .overlay{
-                         position: relatve;
-                        left: 0;
-                        right: 0; 
-                        width: 30em;
-                        height: 30em;
-                        border: 1px solid orange;
-                        font-size: 14px;
-                        background: rgba(255, 255, 255, 0.4);
-                        display:none; 
-                       	
-                        } */
-                        
+                       
+                                               
                         .content {
                          background: rgba(255, 255, 255, 0.8);
                          
@@ -103,6 +92,7 @@
                             $.ajax({
                                 url: "${pageContext.request.contextPath}/map/mapViewData.do",
                                 type: 'get',
+                                async:false,
                                 success: function (data) {
                                     console.log(data);                                    
                                     for (var i in data.poster) {
@@ -216,7 +206,7 @@
 
                                 var $content = $('<div></div>').addClass('content');
                                 var $poster = $('<div></div>').addClass('poster');
-                                var $info = $('<div></div>').addClass('info_area');
+                                var	$info = $('<div></div>').addClass('info_area');
                                 
                                 
                                 // 오버레이 들어갈 내용 담기
@@ -236,18 +226,22 @@
                                
                                $('#map-marker-content').html($content);
                                
+                               $('#map-marker-content').on('click', function() {
+                           		var pname = overlay.title;        						
+               					location.href = "${pageContext.request.contextPath}/map/mapPlcSrch.do?pname="+pname;
+                           	});
                                
                                
                             }
                             
                         }
                         
-                        $(function(){
-                        	$('div[class="poster"]').on('click', function() {
+                       /*  $(function(){
+                        	$('#map-marker-content').on('click', function() {
                         		var pname = positions.title;        						
             					location.href = "${pageContext.request.contextPath}/map/mapPlcSrch.do?pname="+pname;
-                        	}
-                        });
+                        	});
+                        }); */
                         
 
 

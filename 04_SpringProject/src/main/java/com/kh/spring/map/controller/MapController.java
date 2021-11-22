@@ -5,18 +5,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import com.kh.spring.art.model.vo.Art;
 import com.kh.spring.common.Utils;
-import com.kh.spring.common.UtilsSearch;
+import com.kh.spring.common.UtilsMap;
+import com.kh.spring.map.model.service.MapService;
+import com.kh.spring.member.model.vo.Member;
 
 @Controller
 public class MapController {
@@ -212,13 +220,16 @@ public class MapController {
 	return map;
 	}
 	
+	
+	
+	
 	@RequestMapping("/map/mapPlcSrch.do")
-	public String mapPlcSrch(Model model, @RequestParam(required = false) String pname,
+	public String mapSrchInfo(Model model, @RequestParam(required = false) String pname,
 										  @RequestParam(value="cPage",required=false,defaultValue="1")int cPage) {
 		int numPerPage = 12;
-		List<Art>alist= mapService.searchInfo(cPage,numPerPage,text);
-		int totalContents = mapService.searchInfototal(text);
-		String pageBar = UtilsSearch.getPageBar(totalContents, cPage, numPerPage, "mapPlcSrch.do",text);
+		List<Art>alist= mapService.searchInfo(cPage,numPerPage,pname);
+		int totalContents = mapService.searchInfototal(pname);
+		String pageBar = UtilsMap.getPageBar(totalContents, cPage, numPerPage, "mapPlcSrch.do",pname);
 		
 		model.addAttribute("alist",alist);
 		model.addAttribute("numPerPage",numPerPage);
@@ -234,34 +245,43 @@ public class MapController {
 	
 	
 	
-//	@RequestMapping("/map/mapSelectList.do")
-//	public String mapSelecList(@RequestParam(value="cPage", required=false, defaultValue="1") int cPage,
-//			Model model
-//			) {
-//			
-//			// 한 페이지당 게시글 수
-//			int numPerPage = 10;
-//			
-//			// 현재 페이지의 게시글 수
-//			List<Map<String, String>> list = boardService.selectBoardList(cPage, numPerPage);
-//			
-//			// 전체 게시글 수
-//			int totalContents = boardService.selectBoardTotalContents();
-//			
-//			// 페이지 처리 Utils 사용하기
-//			String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "boardList.do");
-//			
-//			System.out.println("list : " + list);
-//			System.out.println("pageBar : " + pageBar);
-//			
-//			
-//			model.addAttribute("list", list);
-//			model.addAttribute("totalContents", totalContents);
-//			model.addAttribute("numPerPage", numPerPage);
-//			model.addAttribute("pageBar", pageBar);
-//			
-//			return "board/boardList";
-//		}
+	@RequestMapping("/map/mapSelectList.do")
+	public String mapSelectList(HttpServletRequest req,Model model, @RequestParam(value="cPage", required=false, defaultValue="1") int cPage
+			) {
+			
+			Member m = (Member)req.getSession().getAttribute("member");
+		
+			// 한 페이지당 게시글 수
+			int numPerPage = 10;
+			
+			// 현재 페이지의 게시글 수
+			List<Art> artList = mapService.selectSearchList(cPage, numPerPage);
+			
+			// 전체 게시글 수
+			int totalContents = mapService.selectSearchTotalContents();			
+			
+			// 페이지 처리 Utils 사용하기
+			String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "mapSelectList.do");
+			
+			List list = new ArrayList();
+			
+			for (Art art : artList) {
+				
+				list.add(art.getArtPlace());
+			}
+			
+			System.out.println("list : " + list);
+			System.out.println("pageBar : " + pageBar);
+			
+			
+			model.addAttribute("list", list);
+			model.addAttribute("artList", artList);
+			model.addAttribute("totalContents", totalContents);
+			model.addAttribute("numPerPage", numPerPage);
+			model.addAttribute("pageBar", pageBar);
+			
+			return "search/searchList";
+		}
 		
 	
 	
