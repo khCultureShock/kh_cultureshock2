@@ -53,7 +53,7 @@
               <a href="${pageContext.request.contextPath}/map/mapView.do" class="nav-link">지도</a>
            </li>
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/board/boardList.do" class="nav-link">지도</a>
+              <a href="${ pageContext.request.contextPath }/search/searchList.do" class="nav-link">검색</a>
            </li>
 		    </ul>
 		   
