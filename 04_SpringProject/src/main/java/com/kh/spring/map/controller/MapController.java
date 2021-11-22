@@ -62,7 +62,7 @@ public class MapController {
 			
 			while (check) {
 				String url = "https://www.kopis.or.kr/openApi/restful/pblprfr"
-						   + "?service=4f13ee3dcf1b4ad48ab21532e0f5bdd1&stdate=20211201&eddate=20211231&cpage=1&rows=10&kidstate=Y";
+						   + "?service=4f13ee3dcf1b4ad48ab21532e0f5bdd1&stdate=20211201&eddate=20211231&cpage=1&rows=70&kidstate=Y";
 				// 포스터, 공연명, 공연장소, 공연 번호
 				
 						
