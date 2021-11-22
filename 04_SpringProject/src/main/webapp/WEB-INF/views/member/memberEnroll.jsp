@@ -327,25 +327,6 @@ div#userId-container span.error, span.invalid {
 					return true;
 				}
 
-				/* $(function() {
-					 $("#btn-outline-success").click(function() {
-					if ($("#reqChkBox").is(":checked") != true) {
-						alert("이용약관에 동의하지 않으셨습니다.");
-						return false;
-					}
-				})
-				}); */
-				
-
-				/*  function insertMember(){
-				if($("#password_").val() == "" || $("#userId_").val() == "") alert("아이디나 비밀번호는 필수 값입니다.");
-				else if($("#reqChkBox").is(":checked") != true) alert("이용 약관에 동의하지 않으셨습니다.");
-				else if($("#userName").val()=="") alert("이름은 필수 값입니다.");
-				else if($("#age").val()=="") alert("나이를 입력해주세요");
-				else if($("#email").val()=="") alert("이메일을 입력해주세요");
-				else if($("#phone").val()=="")alert("휴대폰 번호를 입력해주세요");
-				else $("form").submit();
-				}  */
 			</script>
 		</section>
 		<c:import url="../common/footer.jsp" />

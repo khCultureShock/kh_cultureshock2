@@ -16,4 +16,10 @@ public interface MemberDAO {
 	int checkIdDuplicate(HashMap<String, Object> hmap);
 
 	int checkIdDuplicate(String userId);
+
+	Member idFind(String phone);
+
+	int changePw(Member member);
+
+	
 }
