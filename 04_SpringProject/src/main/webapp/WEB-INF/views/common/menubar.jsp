@@ -79,7 +79,7 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-          <!--로그인폼 -->
+          
           <!-- https://getbootstrap.com/docs/4.1/components/forms/#overview -->
           <form action="${pageContext.request.contextPath}/member/memberLogin.do" method="post">
 	      <div class="modal-body">
@@ -167,7 +167,7 @@
 	<!-- 비밀번호 재설정 모달 끝 -->
 	
 	<script>
-	
+	/* 함수 */
 	$(function() {
 
 		$("#password2").blur(
