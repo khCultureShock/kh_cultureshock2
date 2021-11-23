@@ -12,6 +12,8 @@
 	<style>
 		/*글쓰기버튼*/
 		input#btn-add{float:right; margin: 0 0 15px;}
+		body, html, section{min-height: 100%}
+		#navbarNav{magin-left:35%;}
 	</style>
 	<script>
 		function fn_goPlayForm(){
@@ -32,8 +34,52 @@
 	<div id="container">
 		<c:import url="../common/menubar.jsp"/>
 			<section id="play-container" class="container">
-				<p>Culture Shock 지역별 페이지 입니다.</p>
-				<p>총 ${totalContents }건의 게시물이 있습니다.</p>
+			<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<a class="navbar-brand" href="${pageContext.request.contextPath}">   
+      	</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="modal_cateDiv" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+          	<li class="nav-item">
+              <a href="${pageContext.request.contextPath}/play/playList.do?artArea=전체" class="nav-link">전체</a>
+           </li>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <li class="nav-item">
+              <a href="${pageContext.request.contextPath}/play/playList.do?artArea=서울" class="nav-link">서울</a>
+           </li>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <li class="nav-item">
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=경기" class="nav-link">경기</a>
+           </li>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <li class="nav-item">
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=충청" class="nav-link">충청</a>
+           </li>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <li class="nav-item">
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=강원" class="nav-link">강원</a>
+           </li>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <li class="nav-item">
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=경상" class="nav-link">경상</a>
+           </li>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <li class="nav-item">
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=전라" class="nav-link">전라</a>
+           </li>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <li class="nav-item">
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=제주 " class="nav-link">제주</a>
+           </li>
+        
+          </ul>
+    	</div>
+    	</nav>	
+				<p class="list_total">총 ${totalContents}건의 게시물이 있습니다.</p>
+				<hr />
+				
 				<table id="tbl-play" class="table table-striped table-hover">
 					<tr>
 						<th>번호</th>
@@ -51,11 +97,6 @@
 						</td>
 						<td>${a.artTitle}</td>
 						<td>${a.artArea}</td>
-						<%-- <td align="center">
-							<c:if test="${b.fileCount>0}">
-								<img alt="첨부파일" src="${pageContext.request.contextPath}/resources/images/file.png" width=16px>
-							</c:if>
-						</td> --%>
 					</tr>
 					</c:forEach>
 				</table>

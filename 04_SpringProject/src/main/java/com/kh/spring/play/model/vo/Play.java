@@ -29,5 +29,5 @@ public class Play implements Serializable {
 	private char artOpenrun;
 	private String artArea;
 	
-	// ** 테이블과 VO의 필드는 반드시 1:1로 만들어질 필요 X
+
 }
