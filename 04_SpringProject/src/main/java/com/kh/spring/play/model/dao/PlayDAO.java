@@ -8,27 +8,10 @@ import com.kh.spring.play.model.vo.Play;
 
 public interface PlayDAO {
 
-	List<Map<String, String>> selectPlayList(int cPage, int numPerPage);
+	List<Map<String, String>> selectPlayList(int cPage, int numPerPage,String artArea);
 
-	int selectPlayTotalContents();
-
-	int insertPlay(Play play);
-
-	int insertAttachment(Attachment a);
+	int selectPlayTotalContents(String artArea);
 
 	Play selectOnePlay(int playNo);
 
-	List<Attachment> selectAttachmentList(int playNo);
-	
-	int updateReadCount(int playNo);
-	
-	int updatePlay(Play play);
-
-	int updateAttachment(Attachment a);
-
-	int deletePlay(int playNo);
-
-	int deleteAttachment(int playNo);
-
-	int deleteFile(int attNo);
 }

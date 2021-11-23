@@ -8,22 +8,10 @@ import com.kh.spring.play.model.vo.Play;
 
 public interface PlayService {
 	
-	List<Map<String, String>> selectPlayList(int cPage, int numPerPage);
+	List<Map<String, String>> selectPlayList(int cPage, int numPerPage,String artArea);
 
-	int selectPlayTotalContents();
-
-	int insertPlay(Play play, List<Attachment> attachList);
+	int selectPlayTotalContents(String artArea);
 
 	Play selectOnePlay(int playNo);
-
-	/* List<Attachment> selectAttachmentList(int playNo); */
-
-	Play updateView(int playNo);
-	
-	int updatePlay(Play play);
-	
-	int deletePlay(int playNo);
-
-	/* int deleteFile(int attNo); */
 	
 }

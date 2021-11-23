@@ -36,7 +36,7 @@
 				카테고리
 				</a>
 			    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/demo/demo.do">지역별</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/play/playList.do">지역별</a>
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/category/cateList.do">종류별</a>
 				</div>
 			  </li>
