@@ -23,10 +23,9 @@
                             border: 1px solid green;
                             width: 35%;
                             height: 50em;
-                            position: absolute;
-                            top: 250px;
-                            right: 0;
-                            overflow: auto;
+                            position:absolute;
+                            left: 65%;
+                            top: 22%;
                             cursor: pointer;
                         }
 
@@ -63,10 +62,10 @@
 
                     <div id="outer">
                         <h3>공연 지도</h3>
-                        
+                       <div>
                         <div id="map"></div>
                         <div id="map-marker-content"></div>
-                       
+                       </div>
 
                     </div>
                     <script type="text/javascript"
