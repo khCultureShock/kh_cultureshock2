@@ -218,7 +218,7 @@
                                 $content.append($info);
                                // $content.append($close); // 닫기 버튼
 
-                                customOverlay.setContent($content[0]);
+                                customOverlay.setContent($content[0]); 
                                 //customOverlay.setMap(map);
                                 
                                // map.setCenter(customOverlay.getPosition());

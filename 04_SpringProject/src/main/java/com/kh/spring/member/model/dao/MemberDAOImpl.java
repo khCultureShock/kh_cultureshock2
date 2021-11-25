@@ -19,6 +19,7 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return sqlSession.insert("memberSQL.insertMember", member);
 	}
+	
 
 	@Override
 	public Member selectOneMember(String userId) {
