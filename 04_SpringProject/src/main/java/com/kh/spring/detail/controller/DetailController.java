@@ -52,13 +52,12 @@ public class DetailController {
 				 System.out.println("artId = " + artId);
 					 								
 				 Art art = detailService.selectArtOne(artId);
-				 
-					System.out.println("art : " + art);
 															
 					model.addAttribute("art", art);
 
 				return "play/playView";
 	}
+	
 }
 
 
