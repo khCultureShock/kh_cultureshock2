@@ -129,6 +129,18 @@
                     </td>
                 </tr>
                 
+                  <tr>
+                    <th class="price">가격</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    &nbsp;&nbsp; ${art.artPrice}
+                          <!-- <input type="text" style="border:none; width: 500px; height: 50px;" readonly required> -->
+                    </td>
+                </tr>
+                
                   
              </table>
              
@@ -141,24 +153,28 @@
 	        <hr />
 	                <p>
 	                <br><br>
-	                뮤지션을 꿈꾸는 소년 미구엘은 전설적인 가수 에르네스토의 기타에 손을 댔다. <br>
-	                '죽은 자들이 세상'에 들어가게 된다. 그리고 그곳에서 만난 의문의 사나이 헥터와 <br>
-	                함께 상상조차 못했던 모험을 시작하게 되는데 ... <br>
-	                과연 '죽은 자들의 세상'에 숨겨진 비밀은? 그리고 미구엘은 무사히 현실로 돌아올 수 있을까? <br>
+	                ${art.artText} 
 	            </p>
             </div>
            </div>
              
             <br /><br />
-		    <button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/buy/buy.do'">예매하기</button>
+		     <button class="btn btn-outline-info" type="button" onclick="ticketing('${art.artId}');">예매하기</button>
 		    &nbsp;
 			<button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/wish/wishList.do'">찜</button>
 	 		&nbsp;
-			<button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/art/artList.do'">돌아가기</button>
+			<button class="btn btn-outline-info" type="button" onclick="goback();">돌아가기</button>
 		</div>
 		<c:import url="../common/footer.jsp"/>
 	</div>
+	
+	<script type="text/javascript">
+		function goback() {
+			window.history.back();
+		} 
+	</script>
 </body>
+
 
 
 
