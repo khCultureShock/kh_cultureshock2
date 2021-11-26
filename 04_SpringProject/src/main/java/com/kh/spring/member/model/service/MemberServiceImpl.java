@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberDAO.insertMember(member);
 	}
-
+	
 	@Override
 	public Member selectOneMember(String userId) {
 		

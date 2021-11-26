@@ -13,6 +13,8 @@
 		INSERT INTO MEMBER VALUES( SEQ_USERNO.NEXTVAL, #{ userId }, #{ password }, #{ userName }, #{ gender }, #{ age }, #{ phone }, 
 		#{ email }, 2, SYSDATE  )
 	</insert>
+	
+	
 		
 	<select id="selectOne" parameterType="string" resultMap="resultMember">
 		SELECT * FROM MEMBER WHERE USERID = #{ userId }	
