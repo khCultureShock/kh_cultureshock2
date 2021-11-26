@@ -6,7 +6,7 @@
 	<select id="selectList" parameterType="int" resultType="Art">
 		SELECT *
       FROM (SELECT ROWNUM A, ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE,
-                     ART_IMG, ART_GENRE, ART_STATUS ,ART_OPENRUN, ART_AREA
+                     ART_IMG, ART_GENRE, ART_STATUS ,ART_OPENRUN, ART_AREA, ART_PRICE, ART_TEXT
             FROM   (SELECT * FROM ART ORDER BY ART_ID DESC)
             WHERE ROWNUM &lt; 8)
       WHERE A  &gt; 3
@@ -27,7 +27,7 @@
 	</select>
 	
 	<select id="selectOneArt" parameterType="int" resultType="Art">
-		SELECT ART_NO,ART_IMG,ART_TITLE,ART_AREA,START_DATE,END_DATE,ART_PLACE,ART_GENRE
+		SELECT ART_NO,ART_IMG,ART_TITLE,ART_AREA,START_DATE,END_DATE,ART_PLACE,ART_GENRE,ART_PRICE,ART_TEXT
 		FROM ART WHERE ART_NO = #{artNo}
 	</select>
 		<!-- SELECT * FROM ART ORDER BY ARTNO DESC -->

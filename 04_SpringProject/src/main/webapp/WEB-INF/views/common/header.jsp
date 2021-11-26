@@ -14,7 +14,7 @@
 
 <style>
 	body {
-		background-color: begie;
+		background-color: rgb(255, 243, 184);
 	}
 	footer{
 		background-color: white;
