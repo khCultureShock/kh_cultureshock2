@@ -17,19 +17,21 @@
 		<section id="content">		
 		
 			<!--div{$번째 영역}*3-->
+			<br /><br />
 			<div class="firstPar">
 			   
 			</div>
 			
-			<div style="height:60px;"> <hr style="margin-top:28px;"/> </div>
+			<div style="height:70px;"> <hr style="margin-top:28px; border: none;"/> </div>
 			
 			<div class="secondPar">
+			<br />
 				<a href="${pageContext.request.contextPath}/calendar/selectCalendarList.do">
-					<img src="${pageContext.request.contextPath }/resources/images/calendar.png"" alt="달력"> <!-- 링크 필요 -->
+					<img src="${pageContext.request.contextPath }/resources/images/nov.png""  width=900px height=400px alt="달력"> <!-- 링크 필요 -->
 				</a> 
 			</div>
 			
-			<div style="height:60px;"> <hr style="margin-top:32px;"/> </div>
+			<div style="height:20px;"> <hr style="margin-top:32px; border: none;"/> </div>
 			
 			<div class="thirdPar">
 					<div class="noticeThumbnail">
@@ -49,7 +51,7 @@
 					&nbsp;&nbsp;
 					<div class="noticeThumbnail">
 						<a href="">
-							<img src="${pageContext.request.contextPath }/resources/images/notice2.png"" alt="공지사항2"> <!-- 링크 필요 -->
+							<img src="${pageContext.request.contextPath }/resources/images/notice1.png"" alt="공지사항2"> <!-- 링크 필요 -->
 						</a>
 						<br />
                         <a href="/perform/performView.do?uci=G7061634197082232" title="공지4 이동" class="test1">
@@ -60,7 +62,8 @@
                         <br />
                         <a href="/perform/performView.do?uci=G7061635813718017" title="공지6 이동" class="test1">
                             <span class="blink">HOT!</span> &nbsp;공지6 공지 내용</a> <!-- 링크 변경 필요 -->
-					</div>    	
+					</div>   
+					 	
 			</div>
 		</section>
 			
@@ -86,7 +89,7 @@ $(function(){
                     + '<img src="'+ art.artImg +'")" onclick="Detail('+'\''+ art.artId +'\''+');">'
                     + '</div>'
                     + '<div class="art-title">'
-                    + '<button class="art-button" onclick="location.href="detail/detail.do""><h6 class="art-title-font">' + art.artTitle + '</h6></button>' 
+                    + '<button class="art-button" onclick="location.href="detail/detail.do"" style="background-color: rgb(255, 243, 184); color: rgb(35, 189, 247);"><h6 class="art-title-font">' + art.artTitle + '</h6></button>' 
                     + '</div></div>'
             }
            

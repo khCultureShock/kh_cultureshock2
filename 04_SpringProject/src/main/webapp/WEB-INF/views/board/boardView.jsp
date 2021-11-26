@@ -24,7 +24,7 @@
 			    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 			}
 			.btn:hover{
-				background: rgb(35, 189, 247);
+				background-color: rgb(35, 189, 247);
 				color: white;
 			}
 			input { background-color: rgb(255, 243, 184); }

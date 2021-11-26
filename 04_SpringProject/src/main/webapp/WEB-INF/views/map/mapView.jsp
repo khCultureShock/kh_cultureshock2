@@ -25,7 +25,7 @@
                             height: 50em;
                             position:absolute;
                             left: 65%;
-                            top: 22%;
+                            top: 44.5%;
                             cursor: pointer;
                         }
 
@@ -61,7 +61,9 @@
                     <c:import url="../common/menubar.jsp" />
 
                     <div id="outer">
+                    <br />
                         <h3>공연 지도</h3>
+                     <br />
                        <div>
                         <div id="map"></div>
                         <div id="map-marker-content"></div>
@@ -246,6 +248,7 @@
 
 
                     </script>
+                    <br /><br />
                     <c:import url="../common/footer.jsp" />
                 </body>
 
