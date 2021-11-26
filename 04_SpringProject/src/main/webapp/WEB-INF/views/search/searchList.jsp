@@ -58,7 +58,7 @@ body, html, section{
 		})
 		
 	</script>
-	
+	<br /><br />
 	<p class="list_total">총 ${totalContents}건의 게시물이 있습니다.</p>
 	<hr />
 	

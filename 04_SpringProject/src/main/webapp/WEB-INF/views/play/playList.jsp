@@ -14,6 +14,13 @@
 		input#btn-add{float:right; margin: 0 0 15px;}
 		body, html, section{min-height: 100%}
 		#navbarNav{magin-left:35%;}
+		ul {
+				text-align : center; 
+				justify-content: center;
+				font-size: 20px;
+				color: black;
+			}
+
 	</style>
 	<script>
 		function fn_goPlayForm(){
@@ -34,13 +41,13 @@
 	<div id="container">
 		<c:import url="../common/menubar.jsp"/>
 			<section id="play-container" class="container">
-			<nav class="navbar navbar-expand-lg navbar-light bg-white">
+			<br />
+			<nav class="navbar navbar-expand-lg navbar-light">
 		<a class="navbar-brand" href="${pageContext.request.contextPath}">   
       	</a>
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-        </button>
-            <div class="modal_cateDiv" id="navbarNav">
+
+
+            <div class="modal_cateDiv" id="navbarNav" style="text-align:center;">
           <ul class="navbar-nav mr-auto">
           	<li class="nav-item">
               <a href="${pageContext.request.contextPath}/play/playList.do?artArea=전체" class="nav-link">전체</a>
@@ -77,6 +84,7 @@
           </ul>
     	</div>
     	</nav>	
+    	<br /><br />
 				<p class="list_total">총 ${totalContents}건의 게시물이 있습니다.</p>
 				<hr />
 				

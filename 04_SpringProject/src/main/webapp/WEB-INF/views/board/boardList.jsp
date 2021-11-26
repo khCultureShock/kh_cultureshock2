@@ -31,6 +31,7 @@
 	<div id="container">
 		<c:import url="../common/menubar.jsp"/>
 			<section id="board-container" class="container">
+			<br /><br />
 				<p>Culture Shock 자유 게시판 입니다.</p>
 				<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success" onclick="fn_goBoardForm();"/>
 				<table id="tbl-board" class="table table-striped table-hover">

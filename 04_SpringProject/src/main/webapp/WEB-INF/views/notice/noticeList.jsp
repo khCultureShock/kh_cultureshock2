@@ -31,6 +31,7 @@
 	<div id="container">
 		<c:import url="../common/menubar.jsp"/>
 			<section id="notice-container" class="container">
+			<br /><br />
 				<p>Culture Shock 공지사항 입니다.</p>
 				<p>총 ${totalContents }건의 게시물이 있습니다.</p>
 				<c:if test="${member.userStatus == 1}">
