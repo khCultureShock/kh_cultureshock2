@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	<footer>
-		&lt;Copyright 2021. <strong>KH정보교육원</strong>. All rights reserved.&gt;
+		<p>&lt;Copyright 2021. <strong>KH정보교육원</strong>. All rights reserved.&gt;</p>
 	</footer>
