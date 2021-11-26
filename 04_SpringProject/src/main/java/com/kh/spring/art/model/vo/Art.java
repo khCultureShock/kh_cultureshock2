@@ -25,4 +25,6 @@ public class Art {
 	private String artStatus;
 	private char artOpenrun;
 	private String artArea;
+	private String artPrice;
+	private String artText;
 }

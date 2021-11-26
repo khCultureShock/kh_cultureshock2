@@ -4,7 +4,7 @@
 <mapper namespace="detailSQL">
 	
 	<select id="selectArtOne" parameterType="string" resultType="Art">
-		SELECT ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE, ART_IMG, ART_GENRE, ART_STATUS, ART_OPENRUN, ART_AREA
+		SELECT ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE, ART_IMG, ART_GENRE, ART_STATUS, ART_OPENRUN, ART_AREA, ART_PRICE, ART_TEXT
 		FROM ART
 		WHERE ART_ID = #{ artId }
 	</select>
