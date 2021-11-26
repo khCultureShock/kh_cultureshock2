@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+
+section {
+	height : 600px;
+	margin-top : 8%;
+}
+
+body {
+	
+    height: 100%;
+}
+
+.seat {
+       width: 30px;
+       height: 30px;
+      }
+        
+.seat-wrapper {
+	width: 235px;
+}        
+        
+.clicked {
+         background-color: red;
+         color: white;
+        }
+        
+/* content */
+
+.reserve-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    height: 475px;
+    /* border: 1px solid #dddddd; */
+}
+
+.reserve-container>div {
+    border: 1px solid #dddddd;
+}
+
+.reserve-title {
+    border-bottom: 1px solid #dddddd;
+    background-color: #444444;
+    text-align: center;
+    color: #dddddd;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.movie-list {
+	padding-left:13px;
+}
+
+.movie-list img {
+	justify-content: center;
+}
+
+.movie-part {
+    width: 260px;
+    text-align:center;
+}
+
+.theater-part {
+    width: 264px;
+}
+
+.day-part {
+    width: 150px;
+}
+
+.sort-wrapper {
+    margin: 10px 6px 6px 10px;
+    /* padding: 3px; */
+    display: flex;
+    border-bottom: 1px solid #dddddd;
+    font-size: 12px;
+    justify-content: center;
+}
+
+.sort-wrapper>div {
+    padding: 3px;
+}
+
+.sort-selected {
+    font-weight: bold;
+}
+
+
+.reserve-date {
+    margin: 10px 6px 6px 10px;
+    /* padding: 3px; */
+    display: flex;
+    border-bottom: 1px solid #dddddd;
+    font-size: 12px;
+    justify-content: center;
+    text-align:center;
+}        
