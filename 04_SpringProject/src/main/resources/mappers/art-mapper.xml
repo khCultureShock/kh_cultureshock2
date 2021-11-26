@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="artSQL">
+
+	<select id="selectList" parameterType="int" resultType="Art">
+		SELECT *
+      FROM (SELECT ROWNUM A, ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE,
+                     ART_IMG, ART_GENRE, ART_STATUS ,ART_OPENRUN, ART_AREA, ART_PRICE, ART_TEXT
+            FROM   (SELECT * FROM ART ORDER BY ART_ID DESC)
+            WHERE ROWNUM &lt; 8)
+      WHERE A  &gt; 3
+	</select>
+	
+	<select id="selectArtList" resultType="com.kh.spring.art.model.vo.Art">
+		SELECT A.ART_NO,ART_IMG,ART_TITLE,ART_AREA, (SELECT COUNT(*) FROM ATTACHMENT WHERE ART_NO = A.ART_NO)FILECOUNT 
+		FROM ART A
+		ORDER BY ART_NO ASC
+		<!-- SELECT P.*, (SELECT COUNT(*) FROM ATTACHMENT WHERE PLAYNO = P.PLAYNO)FILECOUNT 
+		FROM PLAY P
+		ORDER BY PLAYDATE DESC, PLAYNO DESC -->
+		<!-- SELECT ART_NO,ART_IMG,ART_TITLE,ART_AREA FROM ART ORDER BY ART_NO DESC -->
+	</select>
+	
+	<select id="selectArtTotalContents" resultType="int">
+		SELECT COUNT(*) FROM ART
+	</select>
+	
+	<select id="selectOneArt" parameterType="int" resultType="Art">
+		SELECT ART_NO,ART_IMG,ART_TITLE,ART_AREA,START_DATE,END_DATE,ART_PLACE,ART_GENRE,ART_PRICE,ART_TEXT
+		FROM ART WHERE ART_NO = #{artNo}
+	</select>
+		<!-- SELECT * FROM ART ORDER BY ARTNO DESC -->
+		<!-- &lt; : < , &gt; : > -->
+		<!-- &le; : ≤ , &ge; : ≥ but error -->
+</mapper>

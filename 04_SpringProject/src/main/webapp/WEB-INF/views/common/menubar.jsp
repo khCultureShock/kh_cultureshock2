@@ -6,12 +6,9 @@
 <!DOCTYPE html>
 <header>
 	<div id="header-container">
-		<h2>Culture Shock</h2>
+	<img src="${pageContext.request.contextPath }/resources/images/logo.png" alt="로고" width="400px" height="250px"/>
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="${pageContext.request.contextPath}">
-			<img src="${pageContext.request.contextPath }/resources/images/rion.PNG" alt="스프링로고" width="100px" height="50px"/>
-		</a>
 	  	<!-- 반응형으로 width 줄어들경우, collapse버튼관련 -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -31,13 +28,16 @@
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/demo/selectDevList.do">Dev 목록</a>
 				</div>
 			  </li>-->
+			<li class="nav-item">
+              <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
+           	</li>
 			  <li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				카테고리
 				</a>
 			    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/demo/demo.do">지역별</a>
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/demo/selectDevList.do">종류별</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/play/playList.do">지역별</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/category/cateList.do">종류별</a>
 				</div>
 			  </li>
 			  <li class="nav-item dropdown">
@@ -45,17 +45,17 @@
 				게시판
 				</a>
 			    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/board/boardList.do">공지사항</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList.do">공지사항</a>
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/board/boardList.do">자유게시판</a>
 				</div>
 			  </li>
 			   <li class="nav-item">
-             	 <a href="${ pageContext.request.contextPath }/map/mapView.do" class="nav-link">지도</a>
-           	  </li>
-           	  	<li class="nav-item">
-             	 <a href="${ pageContext.request.contextPath }/search/searchList.do" class="nav-link">검색</a>
-           	  </li>
-		    </ul>   
+              <a href="${pageContext.request.contextPath}/map/mapView.do" class="nav-link">지도</a>
+           </li>
+           <li class="nav-item">
+              <a href="${ pageContext.request.contextPath }/search/searchList.do" class="nav-link">검색</a>
+           </li>
+		    </ul>
 		   
 			<!-- 로그인처리  -->
 			<c:if test="${empty member}">
@@ -65,8 +65,11 @@
 		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/member/memberEnroll.do'">회원가입</button>
 		    </c:if>
 		    <c:if test="${!empty member}">
-		        <span><a href="${pageContext.request.contextPath}/member/memberView.do?userId=${member.userId}" title="내정보보기">${member.userName}</a> 님, 안녕하세요</span>
+		        <span><a href="${pageContext.request.contextPath}/member/memberView.do?userId=${member.userId}" title="내 정보보기">${member.userName}</a> 님, 안녕하세요</span>
 		        &nbsp;
+		        <a class="navbar-brand" href="${pageContext.request.contextPath}/wish/wishList.do">
+         		<img src="${pageContext.request.contextPath }/resources/images/bookmark.png" alt="cart" width="30px" height="30px"/>
+      			</a>
 		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">로그아웃</button>
 		    </c:if>
 		 </div>
@@ -82,7 +85,7 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-          <!--로그인폼 -->
+          
           <!-- https://getbootstrap.com/docs/4.1/components/forms/#overview -->
           <form action="${pageContext.request.contextPath}/member/memberLogin.do" method="post">
 	      <div class="modal-body">
@@ -167,7 +170,7 @@
                             </div>
                         </div>
                     </div>		
-	<!-- 비밀번호 재설정 모달 끝 -->
+	<!— 비밀번호 재설정 모달 끝 —>
 	
 	<script>
 	/* 함수 */

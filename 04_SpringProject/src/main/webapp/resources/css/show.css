@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+section {
+	height : 1000px;
+	margin-top : 0px;
+}
+
+.show{
+	 	width: 1600px;
+        height: 1800px;
+        justify-content: center;
+        display:flex;
+	
+}
+
+ .art   {
+        width: 200px;
+        height: 225px;
+        display: inline-block;
+        margin-right: 5px;
+        margin-left: 5px;
+        position: relative;
+        }
+
+ .art-img img {
+        width: 200px;
+        height: 220px;
+        margin-bottom: 5px;
+        }
+        
+ .art-title {
+ 		text-align : center;
+		}
+ 
+ .art-button {
+ 		width: 200px;
+ 		margin-left : auto;
+ 		background-color:white;
+ 		border : none;
+ 		}
+ 
+ .noticeThumbnail {
+ 		width: 450px;
+ 		height: 200px;
+ 		}
+        
+        
+        

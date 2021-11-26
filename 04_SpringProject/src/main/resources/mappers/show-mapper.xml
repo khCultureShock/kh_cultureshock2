@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="show">
+
+	<select id="selectList" parameterType="int" resultType="Show">
+		SELECT *
+      FROM (SELECT ROWNUM A, ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE,
+                     ART_IMG, ART_GENRE, ART_STATUS ,ART_OPENRUN, ART_AREA
+            FROM   (SELECT * FROM ART ORDER BY ART_ID DESC)
+            WHERE ROWNUM &lt; 7)
+      WHERE A  &gt; 1
+	</select>
+		<!-- SELECT * FROM ART ORDER BY ARTNO DESC -->
+		<!-- &lt; : < , &gt; : > -->
+		<!-- &le; : ≤ , &ge; : ≥ but error -->
+</mapper>

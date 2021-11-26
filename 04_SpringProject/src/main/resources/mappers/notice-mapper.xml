@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noticeSQL">
+
+	<select id="selectNoticeList" resultType="com.kh.spring.notice.model.vo.Notice">
+		SELECT N.*, (SELECT COUNT(*) FROM ATTACHMENT WHERE NOTICENO = N.NOTICENO)FILECOUNT 
+		FROM NOTICE N
+		ORDER BY NOTICEDATE DESC, NOTICENO DESC
+	</select>
+	
+	<select id="selectNoticeTotalContents" resultType="int">
+		SELECT COUNT(*) FROM NOTICE
+	</select>
+	
+	<insert id="insertNotice" parameterType="Notice">
+		INSERT INTO NOTICE (NOTICENO, NOTICETITLE, NOTICEWRITER, NOTICECONTENT)
+		VALUES (SEQ_NOTICENO.NEXTVAL, #{ noticeTitle }, #{ noticeWriter }, #{ noticeContent })
+		<!-- <selectKey keyProperty="boardNo" resultType="_int" order="AFTER">
+			SELECT SEQ_BOARDNO.CURRVAL FROM DUAL
+		</selectKey> -->
+	</insert>
+	
+	<!-- <insert id="insertAttachment" parameterType="Attachment">
+		 selectKey
+		다른 테이블의 정보를 외래키로 사용할 경우 참조 연결
+		<selectKey keyProperty="noticeNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_NOTICENO.CURRVAL FROM DUAL
+		</selectKey>
+		INSERT INTO ATTACHMENT VALUES (SEQ_ATTACHMENTNO.NEXTVAL, 
+		  #{ noticeNo }, #{ originalFileName }, #{ renamedFileName }, 
+		  SYSDATE, 0, 'Y' )
+	</insert> -->
+	
+	<select id="selectOneNotice" parameterType="int" resultType="Notice">
+		SELECT * FROM NOTICE WHERE NOTICENO = #{ noticeNo }
+	</select>
+	
+	<!-- <select id="selectAttachmentList" parameterType="int" resultType="Attachment">
+		SELECT *FROM ATTACHMENT WHERE NOTICENO = #{ noticeNo }
+	</select> -->
+	
+	<update id="updateReadCount" parameterType="int">
+		UPDATE NOTICE SET NOTICEREADCOUNT = NOTICEREADCOUNT + 1 WHERE NOTICENO = #{ noticeNo }
+	</update>
+	
+	<update id="updateNotice" parameterType="Notice">
+		UPDATE NOTICE SET NOTICETITLE = #{ noticeTitle }, NOTICECONTENT = #{ noticeContent }
+		WHERE NOTICENO = #{ noticeNo }
+	</update>
+	
+	<!-- <insert id="updateAttachment" parameterType="Attachment">
+		INSERT INTO ATTACHMENT VALUES (SEQ_ATTACHMENTNO.NEXTVAL, 
+		  #{ noticeNo }, #{ originalFileName }, #{ renamedFileName }, 
+		  SYSDATE, 0, 'Y' )
+	</insert>
+	
+	<delete id="deleteAttachment" parameterType="int">
+		DELETE FROM ATTACHMENT WHERE NOTICENO = #{ noticeNo } 
+	</delete>
+	
+	<delete id="deleteFile" parameterType="int">
+		DELETE FROM ATTACHMENT WHERE ATTACHMENTNO = #{ attNo }
+	</delete> -->
+	
+	<delete id="deleteNotice" parameterType="int">
+		DELETE FROM NOTICE WHERE NOTICENO = #{ noticeNo }
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

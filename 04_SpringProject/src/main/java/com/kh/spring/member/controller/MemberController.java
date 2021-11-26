@@ -36,42 +36,46 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/member/memberEnrollEnd.do")
-	public String memberEnrollEnd(Member m, Model model) { // HttpServletRequest / RequestParam / CommandMap
-		
-		System.out.println("받아온 정보 확인 : " + m);
-		
-		String pass1 = m.getPassword(); // 원래 비밀번호
+	public String memberEnrollEnd(Member m, Model model,SessionStatus status) { // Model 추가
+		System.out.println("받아온 정보 확인: " + m);
+
+		String pass1 = m.getPassword();
 		String pass2 = bcryptPasswordEncoder.encode(pass1); // 비밀번호 암호화
-		
-		System.out.println(pass1 + " / " + pass2);
-		
+		System.out.println(pass1 + "/" + pass2);
+
 		m.setPassword(pass2);
+
 		try {
+
 			// 1. 서비스로 비즈니스(업무) 로직 수행하기
 			int result = memberService.insertMember(m);
-			
-			// 2. 처리 결과에 따른 화면 처리
+
+			// 2. 처리 결과 성공, 실패 화면
 			String loc = "/"; // welcome-file
 			String msg = "";
-			
-			if( result > 0 ) {
+
+			if (result > 0) {
 				msg = "회원 가입 성공!";
 			} else {
-				msg = "회원 가입 실패!";
+				msg = "회원 가입 실패";
+			}
+			model.addAttribute("loc", loc);
+			model.addAttribute("msg", msg);			
+			
+			
+			if ( ! status.isComplete() ) {
+				status.setComplete();			
 			}
 			
-			model.addAttribute("loc", loc);
-			model.addAttribute("msg", msg);
-		} catch( Exception e ) {
-			System.out.println("회원 가입 시 에러 발생!");
-			System.out.println("Err :: " + e.getMessage());
-			
-			// 우리가 발생한 에러에 대해 직접 처리할 수도 있다!
-			throw new MemberException(e.getMessage());
+		} catch (Exception e) {
+			System.out.println("회원 가입 에러 발생!");
+			System.out.println("Err ::" + e.getMessage());
+
+			// 발생한 에러를 직접 처리할 수도 있다
+			throw new MemberException(e.getMessage()); // extends "Runtime"Exception
 		}
-		
+
 		return "common/msg";
-		
 	}
 	
 	@RequestMapping("/member/memberLogin.do")
@@ -91,6 +95,7 @@ public class MemberController {
 			// 아이디는 있었다!
 			if( bcryptPasswordEncoder.matches(password, result.getPassword())) {
 				// bcrypt에서 비교를 위한 메소드를 제공해준다!
+				
 				msg = "로그인 성공!";
 				
 				model.addAttribute("member", result);
@@ -244,7 +249,7 @@ public class MemberController {
 	
 	@RequestMapping("/member/changePw.do")
 	public String changePw(Member member,
-						   Model model) {
+						   Model model, SessionStatus status ) {
 		String passBefo = member.getPassword();
 		String passAft = bcryptPasswordEncoder.encode(passBefo); // 암호화
 		
@@ -264,6 +269,10 @@ public class MemberController {
 		
 		model.addAttribute("loc", loc);
 		model.addAttribute("msg", msg);
+		
+		if ( ! status.isComplete() ) {
+			status.setComplete();			
+		}
 		
 		return "common/msg";
 	}

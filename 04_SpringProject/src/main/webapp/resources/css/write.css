@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+tr, td {
+    width: 100px;
+    height: 30px;
+}
+
+textarea {
+	width: 600px;
+	height: 300px;
+}
+.title1, .write1, .nput-group mb-31, .text1 {
+    font-size: 10px;
+    font-weight: bold;
+}
+.btn {
+	color: rgb(35, 189, 247);
+    background-color: transparent;
+    background-image: none;
+    border-color: rgb(35, 189, 247);
+}
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="calDAO">
+	<!-- 선언부 resultMap, include-sql -->
+	
+	<resultMap id="calMap" type="Calendar">
+		<result column="start1" property="start1"/> 
+		<result column="end1" property="end1"/>
+	</resultMap>
+	
+	<select id="selectCalendarList" resultMap="calMap" >
+		SELECT ID, GROUPID, TITLE, WRITER, CONTENT, TO_CHAR(START1, 'YYYY-MM-DD"T"HH24:MI:SS')START1,
+			   TO_CHAR(END1, 'YYYY-MM-DD"T"HH24:MI:SS')END1,
+			   ALLDAY,
+			   TEXTCOLOR,
+			   BACKGROUNDCOLOR,
+			   BORDERCOLOR
+		FROM CALENDAR 
+	</select>
+	
+</mapper>

@@ -10,13 +10,34 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 <!-- 사용자작성 css -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" />
-<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/rion.PNG">
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/logo.PNG">
+
 <style>
 	body {
-		background-color: begie;
+		background-color: rgb(255, 243, 184);
 	}
 	footer{
-		background-color: black;
-		color : white;
+		background-color:  rgb(213, 157, 113);
+		color : #200932;
 	}
+	
+	@keyframes blink {
+		0%,
+		50%,
+		100% {
+			opacity: 1;
+		}
+		25%,
+		75% {
+			opacity: 0;
+		}	
+	}
+	
+	.blink {
+		animation: blink 3s both;
+		animation-iteration-count: infinite;
+		color: #007bff;
+	}
+	
+	a:hover { text-decoration: none;}
 </style>

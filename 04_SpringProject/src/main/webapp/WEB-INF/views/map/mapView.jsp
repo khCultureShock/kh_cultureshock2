@@ -23,29 +23,18 @@
                             border: 1px solid green;
                             width: 35%;
                             height: 50em;
-                            position: absolute;
-                            top: 250px;
-                            right: 0;
-                            overflow: auto;
+                            position:absolute;
+                            left: 65%;
+                            top: 22%;
+                            cursor: pointer;
+
                         }
 
                         li {
                             list-style: none;
                         }
-                        
-                        /* .overlay{
-                         position: relatve;
-                        left: 0;
-                        right: 0; 
-                        width: 30em;
-                        height: 30em;
-                        border: 1px solid orange;
-                        font-size: 14px;
-                        background: rgba(255, 255, 255, 0.4);
-                        display:none; 
-                       	
-                        } */
-                        
+
+                       
                         .content {
                          background: rgba(255, 255, 255, 0.8);
                          
@@ -74,10 +63,11 @@
 
                     <div id="outer">
                         <h3>공연 지도</h3>
-                        
+
+                       <div>
                         <div id="map"></div>
                         <div id="map-marker-content"></div>
-                       
+                       </div>
 
                     </div>
                     <script type="text/javascript"
@@ -103,6 +93,7 @@
                             $.ajax({
                                 url: "${pageContext.request.contextPath}/map/mapViewData.do",
                                 type: 'get',
+                                async:false,
                                 success: function (data) {
                                     console.log(data);                                    
                                     for (var i in data.poster) {
@@ -216,7 +207,8 @@
 
                                 var $content = $('<div></div>').addClass('content');
                                 var $poster = $('<div></div>').addClass('poster');
-                                var $info = $('<div></div>').addClass('info_area');
+                                var	$info = $('<div></div>').addClass('info_area');
+
                                 
                                 
                                 // 오버레이 들어갈 내용 담기
@@ -229,25 +221,30 @@
                                 $content.append($info);
                                // $content.append($close); // 닫기 버튼
 
-                                customOverlay.setContent($content[0]);
+
+                                customOverlay.setContent($content[0]); 
                                 //customOverlay.setMap(map);
                                 
                                // map.setCenter(customOverlay.getPosition());
                                
                                $('#map-marker-content').html($content);
                                
+                               $('#map-marker-content').on('click', function() {
+                           		var pname = overlay.title;        						
+               					location.href = "${pageContext.request.contextPath}/map/mapPlcSrch.do?pname="+pname;
+                           	});
                                
                                
                             }
                             
                         }
                         
-                        $(function(){
-                        	$('div[class="poster"]').on('click', function() {
+                       /*  $(function(){
+                        	$('#map-marker-content').on('click', function() {
                         		var pname = positions.title;        						
-            					location.href = "${pageContext.request.contextPath}/map/mapSelectList.do?pname="+pname;
-                        	}
-                        });
+            					location.href = "${pageContext.request.contextPath}/map/mapPlcSrch.do?pname="+pname;
+                        	});
+                        }); */
                         
 
 
