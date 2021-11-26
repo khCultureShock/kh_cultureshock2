@@ -163,7 +163,7 @@
 		    &nbsp; --%>
 		    <button class="btn btn-outline-info" type="button" onclick="ticketing('${art.artId}');">예매하기</button>
 		    &nbsp;
-			<button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/wish/wishList.do'">찜</button>
+			<button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/wish/insert.do?artId=${ param.artId }'">찜</button>
 	 		&nbsp;
 			<button class="btn btn-outline-info" type="button" onclick="goback();">돌아가기</button>
 		</div>

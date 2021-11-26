@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wishSQL">
+
+	<insert id="insert">
+		INSERT INTO WISHLIST (WISH_ID, WISH_USER_NO, WISH_ART_ID)
+        VALUES 
+          (SEQ_WISHLIST.NEXTVAL, #{wishUserNo}, #{wishArtId} )
+
+	</insert>
+	
+	<select id="listWish" resultType="com.kh.spring.wish.model.vo.WishList">
+   
+    
+        SELECT wish_id, ART_NO, ART_ID "wish_art_id", wish_user_no, ART_TITLE, ART_PLACE, ART_IMG, ART_GENRE, ART_AREA
+       
+        
+        FROM MEMBER M, WISHLIST W, ART A
+       
+        
+        WHERE M.userNo=W.wish_user_no AND W.wish_art_id=A.art_id 
+              AND M.userNo = #{ wishUserNo } ORDER BY wish_id
+       
+                   
+	</select>
+	
+	<delete id="delete">
+        DELETE FROM WISHLIST WHERE wish_id= #{wishId}
+    </delete>
+	
+
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
