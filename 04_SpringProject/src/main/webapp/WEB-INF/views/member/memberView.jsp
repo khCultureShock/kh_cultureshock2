@@ -25,14 +25,12 @@
                 <br>
 		<form name="memberUpdateFrm" action="${pageContext.request.contextPath}/member/memberUpdate.do" method="post">
 			
-			<table>
+			<table align="center">
                     <tr>
                     <td width="400px;">아이디</td>
-                    <td width="600px;">예매리스트</td>
                     </tr>
                     <tr>
                         <td><input type="text" class="form-control" placeholder="아이디 (4글자이상)" name="userId" id="userId_" value="${member.userId}" readonly required></td>
-                        <td rowspan="5">두번째 칸</td>
                     </tr>
                     <tr>
                         <td>이름</td>
@@ -48,11 +46,9 @@
                     </tr>
                     <tr>
                         <td>이메일</td>
-                        <td>장바구니</td>
                     </tr>
                     <tr>
                         <td><input type="email" class="form-control" placeholder="이메일" name="email" id="email" value="${member.email}" required></td>
-                        <td rowspan="5">두번째 칸</td>
                     </tr>
                     <tr>
                         <td>전화번호</td>                        

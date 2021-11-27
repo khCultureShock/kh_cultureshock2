@@ -6,9 +6,6 @@ section {
 	margin-top : 8%;
 }
 
-* {
-    font-size: 11px;
-}
 
 body {
 	
@@ -22,6 +19,7 @@ body {
     display: flex;
     justify-content: center;
     height: 475px;
+    font-size: 11px;
     /* border: 1px solid #dddddd; */
 }
 

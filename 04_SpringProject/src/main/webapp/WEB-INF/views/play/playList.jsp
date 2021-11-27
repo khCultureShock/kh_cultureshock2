@@ -15,10 +15,11 @@
 		body, html, section{min-height: 100%}
 		#navbarNav{magin-left:35%;}
 		ul {
-				text-align : center; 
-				justify-content: center;
 				font-size: 20px;
-				color: black;
+				padding-left: 100px;
+			}
+			a{
+				color : rgb(213, 157, 113);
 			}
 
 	</style>
@@ -46,39 +47,39 @@
 		<a class="navbar-brand" href="${pageContext.request.contextPath}">   
       	</a>
 
-
             <div class="modal_cateDiv" id="navbarNav" style="text-align:center;">
           <ul class="navbar-nav mr-auto">
           	<li class="nav-item">
-              <a href="${pageContext.request.contextPath}/play/playList.do?artArea=전체" class="nav-link">전체</a>
+          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="${pageContext.request.contextPath}/play/playList.do?artArea=전체" class="nav-link1">전체</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${pageContext.request.contextPath}/play/playList.do?artArea=서울" class="nav-link">서울</a>
+              <a href="${pageContext.request.contextPath}/play/playList.do?artArea=서울" class="nav-link1">서울</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=경기" class="nav-link">경기</a>
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=경기" class="nav-link1">경기</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=충청" class="nav-link">충청</a>
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=충청" class="nav-link1">충청</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=강원" class="nav-link">강원</a>
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=강원" class="nav-link1">강원</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=경상" class="nav-link">경상</a>
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=경상" class="nav-link1">경상</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=전라" class="nav-link">전라</a>
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=전라" class="nav-link1">전라</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=제주 " class="nav-link">제주</a>
+              <a href="${ pageContext.request.contextPath }/play/playList.do?artArea=제주 " class="nav-link1">제주</a>
            </li>
         
           </ul>
