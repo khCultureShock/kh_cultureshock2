@@ -26,7 +26,7 @@
             height: 0;
             overflow: hidden;
             transition: height 2s ease-in;
-            background-color: snow;
+            background-color: rgb(255, 243, 184);
             color: black;
             text-align: center;
         }
