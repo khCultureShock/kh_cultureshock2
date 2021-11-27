@@ -70,7 +70,9 @@ body, html, section{
 						<td>${a.artGenre}</td>
 						<td>${a.artArea}</td>
 						<td><a href=
-							"${path}/spring/wish/delete.do?wishId=${a.wishId}">[삭제]</a>
+							"${path}/spring/wish/delete.do?wishId=${a.wishId}">
+							<img src="${pageContext.request.contextPath }/resources/images/delete.png" alt="del" width="25px" height="25px"/>
+							</a>
 
                     	</td>
 					</tr>

@@ -6,7 +6,6 @@ section {
 	margin-top : 8%;
 }
 
-
 body {
 	
     height: 100%;
@@ -20,7 +19,7 @@ body {
     justify-content: center;
     height: 475px;
     font-size: 11px;
-    /* border: 1px solid #dddddd; */
+ 
 }
 
 .reserve-container>div {
@@ -38,7 +37,7 @@ body {
 }
 
 .movie-part {
-    width: 296px;
+    width: 350px;
 }
 
 .theater-part {
