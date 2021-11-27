@@ -12,25 +12,25 @@
 <!-- <script src="../resources/js/jquery-3.6.0.min.js"></script> -->
 
 <style>
-body, html, section{
-	min-height: 100%
-}
+		body, html, section{ min-height: 100%;}
+		ul {
+				text-align : center; 
+				justify-content: center;
+				font-size: 20px;
+				color: black;
+			}
 </style>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/category.css" />
+	
 </head>
 <body>
 	<c:import url="../common/header.jsp"/>
 	<c:import url="../common/menubar.jsp"/>
 
 	<section>
-	<nav class="navbar navbar-expand-lg navbar-light bg-white">
-	<a class="navbar-brand" href="${pageContext.request.contextPath}">
-         
-      </a>
-        <!-- 반응형으로 width 줄어들경우, collapse버튼관련 -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-        </button>
+	<nav class="navbar navbar-expand-lg navbar-light">
+	<a class="navbar-brand" href="${pageContext.request.contextPath}"></a>
+
             <div class="modal_cateDiv" id="navbarNav">
           <ul class="navbar-nav mr-auto">
            <li class="nav-item">
@@ -72,9 +72,13 @@ body, html, section{
 				location.href = "${pageContext.request.contextPath}/play/playView.do?no="+artNo;
 			});
 		});
+		
+		function Detail(artId){
+			location.href = "${pageContext.request.contextPath}/detail/detail.do?artId="+artId; 
+		   }
 	</script>
 
-	
+	<br /><br />
 	<p class="list_total">총 ${totalContents}건의 게시물이 있습니다.</p>
 	<hr />
 	
@@ -84,11 +88,9 @@ body, html, section{
 		<div class="list_container">
 			<c:forEach items="${alist}" var="alist" varStatus="status">
 				<div class="listArea">
-					<img src="${alist.artImg}">
-						<%-- <div class="main_topinfo" style="display:none;">
-							<button class="main_toprevieww" onclick="goDetail('${alist.artId}'); return false;"
-							style="border: none; background-color: var(--black-color);color: #0086D3;">작품보기</button>
-						</div>	 --%>
+				
+					<img src="${alist.artImg}" onclick="Detail('${alist.artId}');">
+					
 					<div class="list_content">
 							<script>
 							 $(document).ready(function(){ 
@@ -110,4 +112,4 @@ body, html, section{
 	<c:import url="../common/footer.jsp"/>
 </body>
 
-</html>
+</html>s

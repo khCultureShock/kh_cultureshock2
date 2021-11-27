@@ -4,33 +4,44 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
+<style>
+		ul {
+				text-align : center; 
+				justify-content: center;
+				font-size: 20px;
+				color: black;
+			}
+			
+
+		.btn {
+				color: rgb(35, 189, 247);
+			    background-color: transparent;
+			    background-image: none;
+			    border-color: rgb(35, 189, 247);
+			    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+			}
+			.btn:hover{
+				background: rgb(35, 189, 247);
+				color: white;
+			}
+</style>
 <header>
-	<div id="header-container">
-	<img src="${pageContext.request.contextPath }/resources/images/logo.png" alt="로고" width="400px" height="250px"/>
+	<div id="header-container" >
+		<img src="${pageContext.request.contextPath }/resources/images/logo.png" alt="로고" width="400px" height="250px"/>
 	</div>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light1">
 	  	<!-- 반응형으로 width 줄어들경우, collapse버튼관련 -->
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<button class="btn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 	  	</button>
+	  	 &nbsp;&nbsp;&nbsp;&nbsp;
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<!-- ul.mr-auto 설정이 없으면, 좌우정렬이 안됨 -->
 			<ul class="navbar-nav mr-auto">
-		      <!--<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}">Home</a></li>-->
-		      <!-- 데모메뉴 DropDown변경 -->
-			  <!--https://getbootstrap.com/docs/4.1/components/navbar/#supported-content-->
-			  <!--<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Demo
-				</a>
-			    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/demo/demo.do">Dev 등록</a>
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/demo/selectDevList.do">Dev 목록</a>
-				</div>
-			  </li>-->
-			<li class="nav-item">
+			<li class="nav-item1">
               <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
            	</li>
+           	 &nbsp;&nbsp;&nbsp;&nbsp;
 			  <li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				카테고리
@@ -40,6 +51,7 @@
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/category/cateList.do">종류별</a>
 				</div>
 			  </li>
+			   &nbsp;&nbsp;&nbsp;&nbsp;
 			  <li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				게시판
@@ -49,12 +61,15 @@
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/board/boardList.do">자유게시판</a>
 				</div>
 			  </li>
-			   <li class="nav-item">
+			   &nbsp;&nbsp;&nbsp;&nbsp;
+			   <li class="nav-item1">
               <a href="${pageContext.request.contextPath}/map/mapView.do" class="nav-link">지도</a>
            </li>
-           <li class="nav-item">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+           <li class="nav-item1">
               <a href="${ pageContext.request.contextPath }/search/searchList.do" class="nav-link">검색</a>
            </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;
 		    </ul>
 		   
 			<!-- 로그인처리  -->

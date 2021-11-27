@@ -25,16 +25,15 @@
                             height: 50em;
                             position:absolute;
                             left: 65%;
-                            top: 39%;
+                            top: 44.5%;
                             cursor: pointer;
-
                         }
 
                         li {
                             list-style: none;
                         }
-
                        
+                                               
                         .content {
                          background: rgba(255, 255, 255, 0.8);
                          
@@ -62,8 +61,9 @@
                     <c:import url="../common/menubar.jsp" />
 
                     <div id="outer">
+                    <br />
                         <h3>공연 지도</h3>
-
+                     <br />
                        <div>
                         <div id="map"></div>
                         <div id="map-marker-content"></div>
@@ -208,7 +208,6 @@
                                 var $content = $('<div></div>').addClass('content');
                                 var $poster = $('<div></div>').addClass('poster');
                                 var	$info = $('<div></div>').addClass('info_area');
-
                                 
                                 
                                 // 오버레이 들어갈 내용 담기
@@ -220,7 +219,6 @@
                                 $content.append($poster);
                                 $content.append($info);
                                // $content.append($close); // 닫기 버튼
-
 
                                 customOverlay.setContent($content[0]); 
                                 //customOverlay.setMap(map);
@@ -250,6 +248,7 @@
 
 
                     </script>
+                    <br /><br />
                     <c:import url="../common/footer.jsp" />
                 </body>
 
