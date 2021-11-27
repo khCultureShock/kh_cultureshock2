@@ -22,11 +22,15 @@
 		        <div class="movie-part">
 		            <div class="reserve-title">${art.artGenre}</div>
 		            		<input type="hidden" name="artGenre" value="${art.artGenre}"/>
-		            <div class="movie-list"><img src="${art.artImg}" width=282px; height=388px;></div>
+		            <div class="movie-list"><img src="${art.artImg}" width=330px; height=430px;></div>
 		            		<input type="hidden" name="artImg" value="${art.artImg}"/>
 		            <div class="sort-wrapper">
-		            	<div class="sort-rate sort-selected"> ${art.artTitle} &nbsp; || &nbsp; ${art.artPlace}
-		                	<input type="hidden" name="artTitle" value="${art.artTitle}"/>
+		            	<div class="sort-rate sort-selected"> ${art.artTitle}
+		                	<input type="hidden" name="artTitle" value="${art.artTitle}"/>		                	
+		                </div>         
+		            </div>
+		            <div class="sort-wrapper">
+		            	<div class="sort-rate sort-selected">${art.artPlace}
 		                	<input type="hidden" name="artPlace" value="${art.artPlace}"/>
 		                </div>         
 		            </div>
@@ -42,15 +46,22 @@
 		            <div class="reserve-title">예매 정보</div>
 
 		           		<input type="hidden" id="reservDate" name="reservDate"/>
+		           		
 		            <div class="movie-list"><img src="${art.artImg}" width=370px; height=310px;></div>
 		            <div class="sort-wrapper">
-		                <div class="sort-rate sort-selected">장르 : ${art.artGenre} &nbsp; || &nbsp; 제목 : ${art.artTitle} &nbsp; || &nbsp; 장소 : ${art.artPlace}</div>               
+		                <div class="sort-rate sort-selected">장르 : ${art.artGenre}</div>               
+		            </div>
+		            <div class="sort-wrapper">
+		                <div class="sort-rate sort-selected">제목 : ${art.artTitle}</div>               
+		            </div>
+		            <div class="sort-wrapper">
+		                <div class="sort-rate sort-selected">장소 : ${art.artPlace}</div>               
 		            </div>
 		            <div class="sort-wrapper">
 		                <div class="sort-rate sort-selected">날짜 : ${art.startDate} ~ ${art.endDate}</div>         
 		            </div>
 		            <div class="sort-wrapper">
-		                <button type="submit">예매하기</button> &nbsp;&nbsp;  
+		                <button type="submit">좌석 선택</button> &nbsp;&nbsp;  
 		                <button type="button" onclick="location.href='${pageContext.request.contextPath}/search/searchList.do'">돌아가기</button>      
 		            </div>
 		        </div>		
