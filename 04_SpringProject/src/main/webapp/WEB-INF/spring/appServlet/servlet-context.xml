@@ -42,6 +42,8 @@
 			<mapping path="/board/**/*.do" />
 			<mapping path="/notice/**/*.do" />
 			<mapping path="/play/**/*.do" />
+			<mapping path="/wish/**/*.do" />
+			<mapping path="/ticketing/**/*.do" />
 			<exclude-mapping path="/board/boardList.do" />			
 			<exclude-mapping path="/notice/noticeList.do" />
 			<exclude-mapping path="/play/playList.do" />
