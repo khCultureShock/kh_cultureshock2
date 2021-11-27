@@ -10,8 +10,7 @@
 	<title>Culture Shock</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index.css" />
 		
-	<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/firework.ico" type="image/x-icon">
-	<link rel="icon" href="${pageContext.request.contextPath }/resources/images/firework.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/logo.png" />
 		
 </head>
 <body>

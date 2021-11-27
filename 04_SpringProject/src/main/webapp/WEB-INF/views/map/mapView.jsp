@@ -7,6 +7,7 @@
 
                 <head>
                     <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+                    <link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/logo.png" />
                     <title>공연 지도</title>
 
                     <style type="text/css">

@@ -17,6 +17,7 @@ body, html, section{
 }
 </style>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/search.css" />
+	<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/logo.png" />
 </head>
 <body>
 	<c:import url="../common/header.jsp"/>
