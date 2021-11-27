@@ -160,11 +160,11 @@
            </div>
              
             <br /><br />
-		    <button class="btn btn-outline-info" type="button" onclick="ticketing('${play.artId}');">예매하기</button>
+		    <button class="btn btn-outline-info" type="button" onclick="ticketing('${play.artId}');"><img src="${pageContext.request.contextPath }/resources/images/ticket.png" alt="ticket" width="70px" height="40px"/></button>
 		    &nbsp;
-			<button class="btn btn-outline-info" type="button" onclick="wishlist('${play.artId}');">찜</button>
+			<button class="btn btn-outline-info" type="button" onclick="wishlist('${play.artId}');"><img src="${pageContext.request.contextPath }/resources/images/redheart.png" alt="ticket" width="40px" height="40px"/></button>
 	 		&nbsp;
-			<button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/art/artList.do'">돌아가기</button>
+			<button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/art/artList.do'"><img src="${pageContext.request.contextPath }/resources/images/back.png" alt="ticket" width="40px" height="40px"/></button>
 		</div>
 		<c:import url="../common/footer.jsp"/>
 	</div>

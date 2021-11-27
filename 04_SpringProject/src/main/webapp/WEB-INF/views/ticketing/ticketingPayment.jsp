@@ -81,7 +81,7 @@
 		
 	<script>
 		var IMP = window.IMP; // 생략가능
-		var iamportKey = 'imp75246444';
+		var iamportKey = 'imp16654177';
 	
 		$(function() {
 			IMP.init( iamportKey );
