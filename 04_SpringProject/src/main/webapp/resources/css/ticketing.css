@@ -17,9 +17,9 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    height: 560px;
-    font-size: 13px;
-    /* border: 1px solid #dddddd; */
+    height: 475px;
+    font-size: 11px;
+ 
 }
 
 .reserve-container>div {

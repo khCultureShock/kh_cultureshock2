@@ -38,22 +38,10 @@
 			
 			<div class="thirdPar">
 					<div class="noticeThumbnail">
-						<a href="">
-							<img src="${pageContext.request.contextPath }/resources/images/notice.jpg" alt="공지사항"> <!-- 링크 필요 -->
+						<a href="${pageContext.request.contextPath}/notice/noticeList.do">
+							<img src="${pageContext.request.contextPath }/resources/images/notice.jpg" alt="공지사항" > <!-- 링크 필요 -->
 						</a> 
-						<!-- <br />
-                        <a href="/perform/performView.do?uci=G7061634197082232" title="공지1 이동" class="test1" style="li">
-                            <span class="blink">HOT!</span> &nbsp;공지1 공지 내용</a> 링크 변경 필요
-                        <br />
-                        <a href="/perform/performView.do?uci=G7061635813646205" title="공지2 이동" class="test1">
-                            <span class="blink">HOT!</span> &nbsp;공지2 공지 내용</a> 링크 변경 필요
-                        <br />
-                        <a href="/perform/performView.do?uci=G7061635813718017" title="공지3 이동" class="test1">
-                        <span class="blink">HOT!</span> &nbsp;공지3 공지 내용</a> 링크 변경 필요 -->
-					</div>
-					&nbsp;&nbsp;
-					<div class="noticeThumbnail">
-						<a href="">
+						<a href="${pageContext.request.contextPath}/board/boardList.do">
 							<img src="${pageContext.request.contextPath }/resources/images/board.jpg" alt="자유게시판"> <!-- 링크 필요 -->
 						</a>
 						<!-- <br />

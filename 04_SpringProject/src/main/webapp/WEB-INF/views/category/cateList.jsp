@@ -18,9 +18,11 @@
 				justify-content: center;
 				font-size: 20px;
 				color: black;
+				padding-right: 400px;
+				color : rgb(213, 157, 113);
 			}
-			
-			
+
+		.nav-link1 {color : rgb(213, 157, 113); }
 </style>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/category.css" />
 	
@@ -36,27 +38,27 @@
             <div class="modal_cateDiv" id="navbarNav">
           <ul class="navbar-nav mr-auto">
            <li class="nav-item">
-              <a href="${pageContext.request.contextPath}/category/cateList.do?artGenre=연극" class="nav-link">연극</a>
+              <a href="${pageContext.request.contextPath}/category/cateList.do?artGenre=연극" class="nav-link1">연극</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=뮤지컬" class="nav-link">뮤지컬</a>
+              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=뮤지컬" class="nav-link1">뮤지컬</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=클래식" class="nav-link">클래식</a>
+              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=클래식" class="nav-link1">클래식</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=오페라" class="nav-link">오페라</a>
+              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=오페라" class="nav-link1">오페라</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=무용" class="nav-link">무용</a>
+              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=무용" class="nav-link1">무용</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;
            <li class="nav-item">
-              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=국악" class="nav-link">국악</a>
+              <a href="${ pageContext.request.contextPath }/category/cateList.do?artGenre=국악" class="nav-link1">국악</a>
            </li>
         
           </ul>
