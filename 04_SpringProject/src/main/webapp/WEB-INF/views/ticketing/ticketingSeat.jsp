@@ -1,3 +1,36 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@heeJin000 
+khCultureShock
+/
+kh_cultureshock2
+Public
+0
+0
+0
+Code
+Issues
+Pull requests
+2
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+kh_cultureshock2/04_SpringProject/src/main/webapp/WEB-INF/views/ticketing/ticketingSeat.jsp
+
+Ho COMMIT
+Latest commit 9dd6190 yesterday
+ History
+ 0 contributors
+269 lines (234 sloc)  11.2 KB
+   
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -93,7 +126,6 @@
     const seatWrapper = document.querySelector(".seat-wrapper");
     let clicked = "";
     let div = "";
-
     for (let i = 0; i < 7; i++) {
         div = document.createElement("div");
         seatWrapper.append(div);
@@ -110,7 +142,6 @@
                 
                 //중복방지 함수
                 selectedSeats = selectedSeats.filter((element, index) => selectedSeats.indexOf(element) != index);
-
                 //click class가 존재할때(제거해주는 toggle)
                 if (input.classList.contains("clicked")) {
                     input.classList.remove("clicked");
@@ -145,7 +176,6 @@
             })
         }
     }
-
     function mapping(input, i, j) {
         if (i === 0) {
             input.value = "A" + j;
@@ -205,7 +235,6 @@
                 <button type="button">예매하기</button>        
             </div>
         </div>
-
     </div>
     
     </form>

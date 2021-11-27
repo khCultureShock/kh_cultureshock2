@@ -25,7 +25,7 @@
                             height: 50em;
                             position:absolute;
                             left: 65%;
-                            top: 22%;
+                            top: 39%;
                             cursor: pointer;
 
                         }

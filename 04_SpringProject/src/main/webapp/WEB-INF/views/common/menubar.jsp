@@ -175,7 +175,6 @@
 	<script>
 	/* 함수 */
 	$(function() {
-
 		$("#password2").blur(
 				function() {
 					var p1 = $("#password1").val(), p2 = $("#password2").val();
