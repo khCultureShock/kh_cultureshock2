@@ -46,10 +46,10 @@ public class TicketingController {
 		return "/ticketing/ticketing";
 	}
 	
-	@RequestMapping("ticketing/ticketing2.do")
+	@RequestMapping("/ticketing/ticketing2.do")
 	public String ticketing2(Model model, @RequestParam String reservDate, Art art) {
 		
-		System.out.println("확인2 : " + reservDate);
+		System.out.println("확인 : " + reservDate);
 		
 		System.out.println("art : " + art);
 		System.out.println("artGenre" + art.getArtGenre());
@@ -59,6 +59,27 @@ public class TicketingController {
 
 		return "/ticketing/ticketingSeat";
 	}
+	
+	@RequestMapping("/ticketing/ticketing3.do")
+	public String ticketing2(Model model, @RequestParam String reservDate, @RequestParam String selectedSeat1, @RequestParam String totalPayment, Art art) {
+		
+		System.out.println("확인1 : " + selectedSeat1);
+		System.out.println("확인2 : " + reservDate);
+		System.out.println("확인3 : " + totalPayment);
+		System.out.println("art : " + art);
+		
+		model.addAttribute("selectedSeat1", selectedSeat1);
+		model.addAttribute("reservDate", reservDate);
+		model.addAttribute("totalPayment", totalPayment);
+		model.addAttribute("art", art);
+
+		return "/ticketing/ticketingPayment";
+	}
+	
+	
+	
+	
+	
 }
 	
 

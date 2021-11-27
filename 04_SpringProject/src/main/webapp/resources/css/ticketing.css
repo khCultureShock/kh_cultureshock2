@@ -6,10 +6,6 @@ section {
 	margin-top : 8%;
 }
 
-* {
-    font-size: 11px;
-}
-
 body {
 	
     height: 100%;
@@ -21,7 +17,8 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    height: 475px;
+    height: 560px;
+    font-size: 13px;
     /* border: 1px solid #dddddd; */
 }
 
@@ -40,7 +37,7 @@ body {
 }
 
 .movie-part {
-    width: 296px;
+    width: 350px;
 }
 
 .theater-part {

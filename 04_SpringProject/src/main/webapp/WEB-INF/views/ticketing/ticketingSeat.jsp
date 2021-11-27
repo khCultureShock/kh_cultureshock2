@@ -1,36 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@heeJin000 
-khCultureShock
-/
-kh_cultureshock2
-Public
-0
-0
-0
-Code
-Issues
-Pull requests
-2
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-kh_cultureshock2/04_SpringProject/src/main/webapp/WEB-INF/views/ticketing/ticketingSeat.jsp
-
-Ho COMMIT
-Latest commit 9dd6190 yesterday
- History
- 0 contributors
-269 lines (234 sloc)  11.2 KB
-   
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -64,7 +31,8 @@ Latest commit 9dd6190 yesterday
 			            	<div class="sort-rate sort-selected"> 1개 좌석 금액  </div>    
 			            </div>   
 			            <div class="sort-wrapper">
-			            	<div class="sort-rate sort-selected"> 100원  </div>      
+			            	<div class="sort-rate sort-selected"> 10원 </div>      
+			            		<!-- <input type="hidden" name="price"/> -->
 			            </div> 
 			    	♥      
 		        </div>
@@ -72,20 +40,23 @@ Latest commit 9dd6190 yesterday
 		            <div class="reserve-title">선택 정보</div>
 		            <div class="reserve-date">
 		            	<div class="sort-rate sort-selected"> 선택 좌석 </div>
+		            		<!-- <input type="hidden" name="quan"/> -->
 		            </div>
 		            <div class="reserve-date">
-		            	<div class="sort-rate sort-selected" id="selectedSeat1" > 버튼 클릭 함수 적용 </div>
+		            	<div class="sort-rate sort-selected" id="selectedSeat1" > 버튼 클릭 함수 </div>
+		            		<input type="hidden" name="selectedSeat1"/>	
 		            </div>
 		            <div class="reserve-date">
 		            	<div class="sort-rate sort-selected"> 결제 금액 </div>
 		            </div>
 		            <div class="reserve-date">
-		            	<div class="sort-rate sort-selected" id="totalPayment"> 계산기 &nbsp;&nbsp; 함수 적용 </div>
+		            	<div class="sort-rate sort-selected" id="totalPayment"> 계산기 함수 </div>
+		            		<input type="hidden" name="totalPayment"/>		            		
 		            </div>
 		        </div>
 		        <div class="time-part">
 		            <div class="reserve-title">예매 정보</div>			            
-		            			<input type="hidden" id="reservDate" name="reservDate"/>
+		            			
 		           		<div class="movie-list"><img src="${art.artImg}" width=370px; height=182px;></div>
 		           				<input type="hidden" name="artImg" value="${art.artImg}"/>	
 		           		<div class="sort-wrapper">
@@ -101,23 +72,60 @@ Latest commit 9dd6190 yesterday
 			                 	<input type="hidden" name="artPlace" value="${art.artPlace}"/>			            
 			            </div>            
 			            <div class="sort-wrapper">
-			                <div class="sort-rate sort-selected">날짜 : ${art.startDate} ~ ${art.endDate}</div>   
-			                	<input type="hidden" name="startDate" value="${art.startDate}"/>
-		            			<input type="hidden" name="endDate" value= "${art.endDate}"/>      
+			                날짜 :<div class="sort-rate sort-selected" id="reservDate">${reservDate}</div>   
+			                	<input type="hidden" name="reservDate" value="${reservDate}"/>				          
 			            </div>
 			            <div class="sort-wrapper">
-			                <div class="sort-rate sort-selected" id="selectedSeat2">선택 좌석 : &nbsp; || &nbsp; 결제 금액 : </div>     
-			                	<input type="hidden" name="" value=""/>
-		            			<input type="hidden" name="" value= ""/>    
+			                <div class="sort-rate sort-selected" id="selectedSeat2">선택 좌석 : &nbsp; || &nbsp; 결제 금액 : </div>   
+			           			<input type="hidden" name="selectedSeat2"/>
 			            </div>
 			            <div class="sort-wrapper">
-			                <button type="submit">결제하기</button>  
+			                <button type="submit">결제페이지</button>
+			                &nbsp;&nbsp;   
 			                <button type="button" onclick="location.href='${pageContext.request.contextPath}/search/searchList.do'">돌아가기</button>        
 			            </div>
 		        </div>	         
 		    </div>    		   
 	    </form>
     </section>
+    
+    <script>
+/* 	    $('input[name=price]').text();  
+	    console.log(price); */
+	    
+/* 	    $('input[name=quan]').val();  
+	    console.log(quan); */
+    
+   		var reservDate =$("input[name=reservDate]").val()
+   		console.log(reservDate);
+   		 
+        $('input[name=reservDate]').val();  
+        console.log(reservDate);
+         
+        $('input[name=reservDate]').val(reservDate);  
+        console.log(reservDate);
+   		 
+   		$('#reservDate').val($(this).find('div').text());
+   		console.log(reservDate);
+   		
+   		$('#reservDate').val($(this).find('div').text(reservDate));
+   		console.log(reservDate);
+   		
+   		$('#reservDate').val($(this).text(reservDate));
+   		console.log(reservDate);
+   		
+   		$('#reservDate').val($(this).text());
+   		console.log(reservDate);
+   		
+   		$('#reservDate').val($(this).find('span').text());
+   		console.log(reservDate);
+   		
+   		$('#reservDate').text()
+   		console.log(reservDate);
+   		
+   		$('#reservDate').val($(this).number);
+   		console.log(reservDate);
+    </script>
     
 <script>
     let test = [];
@@ -126,6 +134,7 @@ Latest commit 9dd6190 yesterday
     const seatWrapper = document.querySelector(".seat-wrapper");
     let clicked = "";
     let div = "";
+
     for (let i = 0; i < 7; i++) {
         div = document.createElement("div");
         seatWrapper.append(div);
@@ -142,6 +151,7 @@ Latest commit 9dd6190 yesterday
                 
                 //중복방지 함수
                 selectedSeats = selectedSeats.filter((element, index) => selectedSeats.indexOf(element) != index);
+
                 //click class가 존재할때(제거해주는 toggle)
                 if (input.classList.contains("clicked")) {
                     input.classList.remove("clicked");
@@ -162,20 +172,30 @@ Latest commit 9dd6190 yesterday
                 
                 if(selectedSeats.length != 0){
                 	$('#selectedSeat1').text(selectedSeats);
-                	$('#totalPayment').text(selectedSeats.length * 100)
-                    $('#selectedSeat2').text('선택 좌석 : ' + selectedSeats + ' || 결제 금액 : ' + selectedSeats.length * 100 + ' ');
+                	$('input[name=selectedSeat1]').val(selectedSeats);
+                	
+                	$('#totalPayment').text(selectedSeats.length * 10)
+                	$('input[name=totalPayment]').val(selectedSeats.length * 10);
+                	
+                    $('#selectedSeat2').text('선택 좌석 : ' + selectedSeats + ' || 결제 금액 : ' + selectedSeats.length * 10 + ' ');
                 } else {
                 	$('#selectedSeat1').text(' 버튼 클릭 함수 적용 ');
+                	$('input[name=selectedSeat1]').val('');
+                	
                     $('#selectedSeat2').text('선택 좌석 :  ||  결제 금액 : ');
+                    $('input[name=selectedSeat2]').val('');
                 }
                 
                /* $('.seat').html(selectedSeats); */
               /* window.getSelection().getRangeAt()
                Range
                console.log(window.getSelection().getRangeAt()); */
+               /*  $('#selectedSeat1').val($(this).find('div').text(selectedSeats));
+                $('#totalPayment').val($(this).find('div').text(selectedSeats.length * 100)); */
             })
         }
     }
+
     function mapping(input, i, j) {
         if (i === 0) {
             input.value = "A" + j;
@@ -195,104 +215,12 @@ Latest commit 9dd6190 yesterday
     }
 </script>
 
-</html>
-
-
-
-
-
-
-
-
-	<%-- <section>
-	<form action="ticketing/ticketing2.do" method="post">
-    <div class="reserve-container">
-        <div class="movie-part">
-            <div class="reserve-title">${art.artGenre}</div>
-            <div class="sort-wrapper">
-                <div class="sort-rate sort-selected">${art.artTitle} || ${art.artPlace}</div>         
-            </div>
-            <div class="movie-list"><img src="${art.artImg}" width=282px; height=380px;></div>
-        </div>
-        <div class="day-part">
-            <div class="reserve-title">날짜</div>
-            <div class="reserve-date">
-            	<input type="hidden" name="startDate" value= "${art.startDate}"/>
-            	<input type="hidden" name="endDate" value= "${art.endDate}"/>
-            </div>
-        </div>
-        <div class="time-part">
-            <div class="reserve-title">예매 정보</div>
-            <div class="sort-wrapper">
-                <div class="sort-rate sort-selected">장르 : ${art.artGenre} &nbsp; || &nbsp; 제목 : ${art.artTitle} &nbsp; || &nbsp; 장소 : ${art.artPlace}</div>               
-            </div>
-            <input type="hidden" id="reservDate" name="reservDate"/>
-            <div class="movie-list"><img src="${art.artImg}" width=370px; height=300px;></div>
-            <div class="sort-wrapper">
-                <div class="sort-rate sort-selected">날짜 : ${art.startDate} ~ ${art.endDate}</div>         
-            </div>
-            <div class="sort-wrapper">
-                <button type="button">예매하기</button>        
-            </div>
-        </div>
-    </div>
-    
-    </form>
-    </section>
-    
-    <script>      
-            var startDate=$("input[name=startDate]").val()
-            var startDateArr = startDate.split('-');
-            
-            var endDate=$("input[name=endDate]").val()
-            var endDateArr = endDate.split('-');
-            
-            var startDateCompare = new Date(startDateArr[0], parseInt(startDateArr[1])-1, startDateArr[2]);
-            var endDateCompare = new Date(endDateArr[0], parseInt(endDateArr[1])-1, endDateArr[2]);
-            
-            const reserveDate = document.querySelector(".reserve-date");
-            
-            	//console.log(startDate);
-            	//console.log(endDate);
-            	//console.log(startDateCompare)
-            	//console.log(endDateCompare)
-            	
-            for (i = startDateCompare.getDate(); i <= endDateCompare.getDate(); i++) {
-            
-            		console.log(startDateCompare.getDate());
-            		console.log(endDateCompare.getDate());
-            		
-            		 const button = document.createElement("button");
-            		 const spanDay = document.createElement("span");
-            		 button.type = "button";
-            		 button.classList = "movie-date-wrapper";
-            		 spanDay.classList = "movie-day";
-            		 
-            		 spanDay.innerHTML = i;
-            		 button.append(spanDay);
-            		 reserveDate.append(button);
-            		 
-            		 dayClickEvent(button);
-            }
-            	
-                function dayClickEvent(button) {
-                    button.addEventListener("click", function() {
-                        const movieDateWrapperActive = document.querySelectorAll(".movie-date-wrapper-active");
-                        movieDateWrapperActive.forEach((list) => {
-                            list.classList.remove("movie-date-wrapper-active");
-                        })
-                        button.classList.add("movie-date-wrapper-active");
-                        
-                        $('#reservDate').val($(this).find('span').text());
-                    });
-                }
-    </script> --%>
-    
     <c:import url="../common/footer.jsp"/>
 </body>
 
 </html>
 
 <!-- 41라인 <input type="hidden" id="reservDate" name="reservDate"/>
-     99라인 $('#reservDate').val($(this).find('span').text()); 
+     99라인 $('#reservDate').val($(this).find('span').text());
+     140라인 $('input[name=selectedSeat1]').val(''); 
      강사님께서 도와주신 것!! 대박!! -->
