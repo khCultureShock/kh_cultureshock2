@@ -19,6 +19,8 @@
 				font-size: 20px;
 				color: black;
 			}
+			
+			
 </style>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/category.css" />
 	
