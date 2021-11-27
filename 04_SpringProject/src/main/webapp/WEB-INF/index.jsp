@@ -39,7 +39,7 @@
 			<div class="thirdPar">
 					<div class="noticeThumbnail">
 						<a href="">
-							<img src="${pageContext.request.contextPath }/resources/images/notice.jpg" alt="공지사항1"> <!-- 링크 필요 -->
+							<img src="${pageContext.request.contextPath }/resources/images/notice.jpg" alt="공지사항"> <!-- 링크 필요 -->
 						</a> 
 						<!-- <br />
                         <a href="/perform/performView.do?uci=G7061634197082232" title="공지1 이동" class="test1" style="li">
@@ -54,7 +54,7 @@
 					&nbsp;&nbsp;
 					<div class="noticeThumbnail">
 						<a href="">
-							<img src="${pageContext.request.contextPath }/resources/images/board.jpg" alt="공지사항2"> <!-- 링크 필요 -->
+							<img src="${pageContext.request.contextPath }/resources/images/board.jpg" alt="자유게시판"> <!-- 링크 필요 -->
 						</a>
 						<!-- <br />
                         <a href="/perform/performView.do?uci=G7061634197082232" title="공지4 이동" class="test1">
