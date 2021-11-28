@@ -50,7 +50,7 @@
             <div class="modal_cateDiv" id="navbarNav" style="text-align:center;">
           <ul class="navbar-nav mr-auto">
           	<li class="nav-item">
-          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
               <a href="${pageContext.request.contextPath}/play/playList.do?artArea=전체" class="nav-link1">전체</a>
            </li>
            &nbsp;&nbsp;&nbsp;&nbsp;

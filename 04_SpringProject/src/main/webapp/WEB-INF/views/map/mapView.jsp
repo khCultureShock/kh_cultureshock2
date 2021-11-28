@@ -26,7 +26,7 @@
                             height: 50em;
                             position:absolute;
                             left: 65%;
-                            top: 44.5%;
+                            top: 50%;
                             cursor: pointer;
                         }
 
@@ -37,6 +37,7 @@
                                                
                         .content {
                          background: rgba(255, 255, 255, 0.8);
+                         height: 49.7em;
                          
                         }
                         

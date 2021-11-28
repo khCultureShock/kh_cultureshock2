@@ -36,26 +36,19 @@
 			
 			<div style="height:20px;"> <hr style="margin-top:32px; border: none;"/> </div>
 			
-			<div class="thirdPar">
-					<div class="noticeThumbnail">
-						<a href="${pageContext.request.contextPath}/notice/noticeList.do">
-							<img src="${pageContext.request.contextPath }/resources/images/notice.jpg" alt="공지사항" > <!-- 링크 필요 -->
-						</a> 
-						<a href="${pageContext.request.contextPath}/board/boardList.do">
-							<img src="${pageContext.request.contextPath }/resources/images/board.jpg" alt="자유게시판"> <!-- 링크 필요 -->
-						</a>
-						<!-- <br />
-                        <a href="/perform/performView.do?uci=G7061634197082232" title="공지4 이동" class="test1">
-                            <span class="blink">HOT!</span> &nbsp;공지4 공지 내용</a> 링크 변경 필요
-                        <br />
-                        <a href="/perform/performView.do?uci=G7061635813646205" title="공지5 이동" class="test1">
-                            <span class="blink">HOT!</span> &nbsp;공지5 공지 내용</a> 링크 변경 필요
-                        <br />
-                        <a href="/perform/performView.do?uci=G7061635813718017" title="공지6 이동" class="test1">
-                            <span class="blink">HOT!</span> &nbsp;공지6 공지 내용</a> 링크 변경 필요 -->
-					</div>   
-					 	
-			</div>
+				<div class="thirdPar">
+						<div class="noticeThumbnail">
+							<a href="${pageContext.request.contextPath}/notice/noticeList.do">
+								<img src="${pageContext.request.contextPath }/resources/images/notice.jpg" alt="공지사항" > <!-- 링크 필요 -->
+							</a> 
+						</div>
+						<div class="noticeThumbnail">
+							<a href="${pageContext.request.contextPath}/board/boardList.do">
+								<img src="${pageContext.request.contextPath }/resources/images/board.jpg" alt="자유게시판"> <!-- 링크 필요 -->
+							</a>
+						</div>
+						 	
+				</div>
 		</section>
 			
 		<c:import url="views/common/footer.jsp"/>
