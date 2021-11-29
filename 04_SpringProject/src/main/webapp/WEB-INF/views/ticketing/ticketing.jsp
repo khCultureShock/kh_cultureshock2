@@ -22,7 +22,7 @@
 		        <div class="movie-part">
 		            <div class="reserve-title">${art.artGenre}</div>
 		            		<input type="hidden" name="artGenre" value="${art.artGenre}"/>
-		            <div class="movie-list"><img src="${art.artImg}" width=330px; height=430px;></div>
+		            <div class="movie-list"><img src="${art.artImg}" width=330px; height=340px;></div>
 		            		<input type="hidden" name="artImg" value="${art.artImg}"/>
 		            <div class="sort-wrapper">
 		            	<div class="sort-rate sort-selected"> ${art.artTitle}
@@ -47,7 +47,7 @@
 
 		           		<input type="hidden" id="reservDate" name="reservDate"/>
 		           		
-		            <div class="movie-list"><img src="${art.artImg}" width=370px; height=310px;></div>
+		            <div class="movie-list"><img src="${art.artImg}" width=370px; height=220px;></div>
 		            <div class="sort-wrapper">
 		                <div class="sort-rate sort-selected">장르 : ${art.artGenre}</div>               
 		            </div>

@@ -61,10 +61,8 @@
 			        <div class="sort-wrapper">
 			        	<div class="sort-rate sort-selected" id="totalPayment">총 결제 가격 : ${totalPayment}</div>   			           		
 			        </div>
-			        <hr />		   
-			        <div class="sort-wrapper">
-			        	<p class="card-text">수량 : <input type="number" min="1" max="10" id="quan"/></p> 
-			        </div>
+			        		   
+			        
 			        <hr />
 			        <div class="sort-wrapper">
 			        	<button id="payBtn">결제하기</button> 

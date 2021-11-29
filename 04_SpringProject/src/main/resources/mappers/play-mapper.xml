@@ -20,7 +20,7 @@
 	</select>
 	
 	<select id="selectOnePlay" parameterType="int" resultType="Play">
-		SELECT ART_NO,ART_ID, ART_TITLE, START_DATE, END_DATE, ART_PLACE, ART_IMG, ART_GENRE, ART_AREA
+		SELECT *
 		FROM ART WHERE ART_NO = #{artNo}
 	</select>
 	
